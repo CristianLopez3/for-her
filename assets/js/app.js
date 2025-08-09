@@ -190,19 +190,13 @@ class BirthdayCarousel {
     }
 
     checkFirstVisit() {
-        // Verificar si es la primera visita
-        const hasVisited = localStorage.getItem('birthdayPageVisited');
         
-        if (!hasVisited) {
-            // Marcar como visitado
-            localStorage.setItem('birthdayPageVisited', 'true');
-            
-            // Iniciar confeti después de un pequeño delay
-            setTimeout(() => {
-                const confetti = new ConfettiEffect();
-                confetti.start();
-            }, 500);
-        }
+        // Iniciar confeti después de un pequeño delay
+        setTimeout(() => {
+            const confetti = new ConfettiEffect();
+            confetti.start();
+        }, 500);
+
     }
     
     createCards() {
