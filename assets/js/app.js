@@ -67,6 +67,124 @@ const cardsData = [
     }
 ];
 
+// Preguntas románticas para el modal
+const preguntas = [
+    "¿Cuál es tu recuerdo favorito de nosotros?",
+    "¿Qué es lo que más te gusta de nuestra relación?",
+    "¿Qué sueño te gustaría cumplir juntos?",
+    "¿Qué canción te recuerda a nosotros?",
+    "¿Qué lugar te gustaría visitar conmigo?",
+    "¿Qué te enamoró de mí?",
+    "¿Qué te gustaría decirme hoy?",
+    "¿Cómo imaginas nuestro futuro juntos?"
+];
+
+// Generar galería de imágenes tipo masonry
+const gallery = document.getElementById('gallery');
+const totalImages = 12;
+for (let i = 1; i <= totalImages; i++) {
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+    item.dataset.index = i - 1;
+    item.innerHTML = `
+        <img class="gallery-img" src="./assets/img/image${i}.jpg" alt="Foto ${i}">
+        <div class="gallery-overlay"><span>💖</span></div>
+    `;
+    gallery.appendChild(item);
+}
+
+// Modal
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+const modalQuestion = document.getElementById('modalQuestion');
+const modalAnswer = document.getElementById('modalAnswer');
+const saveAnswer = document.getElementById('saveAnswer');
+const closeModal = document.getElementById('closeModal');
+
+let currentImgIndex = 0;
+
+// Mostrar modal al hacer click en imagen
+gallery.addEventListener('click', e => {
+    const item = e.target.closest('.gallery-item');
+    if (!item) return;
+    currentImgIndex = Number(item.dataset.index);
+    showModal(currentImgIndex);
+});
+
+function showModal(index) {
+    modal.classList.add('active');
+    modalImg.src = `./assets/img/${index + 1}.jpg`;
+    modalQuestion.textContent = preguntas[index % preguntas.length];
+    // Cargar respuesta guardada
+    const saved = localStorage.getItem('respuesta_' + index);
+    modalAnswer.value = saved || '';
+    setTimeout(() => modalAnswer.focus(), 300);
+}
+
+// Guardar respuesta
+saveAnswer.addEventListener('click', () => {
+    localStorage.setItem('respuesta_' + currentImgIndex, modalAnswer.value.trim());
+    saveAnswer.textContent = "¡Guardado!";
+    setTimeout(() => saveAnswer.textContent = "Guardar respuesta", 1200);
+});
+
+// Cerrar modal
+closeModal.addEventListener('click', () => {
+    modal.classList.remove('active');
+});
+window.addEventListener('keydown', e => {
+    if (e.key === "Escape") modal.classList.remove('active');
+});
+
+// Música de fondo
+const musicBtn = document.getElementById('music-btn');
+const bgMusic = document.getElementById('bg-music');
+let isPlaying = false;
+musicBtn.addEventListener('click', () => {
+    if (isPlaying) {
+        bgMusic.pause();
+        isPlaying = false;
+        musicBtn.style.background = "var(--primario)";
+    } else {
+        bgMusic.play();
+        isPlaying = true;
+        musicBtn.style.background = "var(--acento)";
+    }
+});
+bgMusic.addEventListener('ended', () => { isPlaying = false; });
+
+// Mensaje final y carta animada
+const finalMsgBtn = document.getElementById('finalMsgBtn');
+const finalLetter = document.getElementById('finalLetter');
+finalMsgBtn.addEventListener('click', () => {
+    finalLetter.classList.add('active');
+    finalLetter.scrollIntoView({ behavior: "smooth" });
+});
+
+// Animación fade-in para las fotos
+document.querySelectorAll('.gallery-item').forEach((item, i) => {
+    item.style.opacity = 0;
+    setTimeout(() => {
+        item.style.opacity = 1;
+        item.style.transition = "opacity 0.8s";
+    }, 200 + i * 120);
+});
+
+// Typing effect para el título
+const mainTitle = document.querySelector('.main-title');
+if (mainTitle) {
+    const text = mainTitle.textContent;
+    mainTitle.textContent = "";
+    let idx = 0;
+    function type() {
+        if (idx < text.length) {
+            mainTitle.textContent += text[idx++];
+            setTimeout(type, 60);
+        }
+    }
+    type();
+}
+
 // Clase para el efecto de confeti
 class ConfettiEffect {
     constructor() {
