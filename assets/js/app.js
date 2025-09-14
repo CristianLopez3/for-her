@@ -79,6 +79,12 @@ const preguntas = [
     "¿Cómo imaginas nuestro futuro juntos?"
 ];
 
+// Mapping of image extensions (some are .jpeg, others are .jpg)
+const imageExtensions = {
+    1: 'jpeg', 2: 'jpg', 3: 'jpeg', 4: 'jpeg', 5: 'jpeg', 6: 'jpeg',
+    7: 'jpg', 8: 'jpg', 9: 'jpg', 10: 'jpg', 11: 'jpg', 12: 'jpg'
+};
+
 // Generar galería de imágenes tipo masonry
 const gallery = document.getElementById('gallery');
 const totalImages = 12;
@@ -86,8 +92,9 @@ for (let i = 1; i <= totalImages; i++) {
     const item = document.createElement('div');
     item.className = 'gallery-item';
     item.dataset.index = i - 1;
+    const extension = imageExtensions[i] || 'jpg';
     item.innerHTML = `
-        <img class="gallery-img" src="./assets/img/image${i}.jpg" alt="Foto ${i}">
+        <img class="gallery-img" src="./assets/img/image${i}.${extension}" alt="Foto ${i}">
         <div class="gallery-overlay"><span>💖</span></div>
     `;
     gallery.appendChild(item);
@@ -113,7 +120,9 @@ gallery.addEventListener('click', e => {
 
 function showModal(index) {
     modal.classList.add('active');
-    modalImg.src = `./assets/img/${index + 1}.jpg`;
+    const imageNum = index + 1;
+    const extension = imageExtensions[imageNum] || 'jpg';
+    modalImg.src = `./assets/img/image${imageNum}.${extension}`;
     modalQuestion.textContent = preguntas[index % preguntas.length];
     // Cargar respuesta guardada
     const saved = localStorage.getItem('respuesta_' + index);
