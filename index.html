@@ -28,6 +28,39 @@
                 </button>
             </div>
         </div>
+        
+        <!-- Gallery section that JS expects -->
+        <div id="gallery" class="gallery">
+            <!-- Gallery items will be generated dynamically -->
+        </div>
+        
+        <!-- Music control -->
+        <button id="music-btn" class="music-control">🎵</button>
+        <audio id="bg-music" loop>
+            <source src="./assets/music/Kali Uchis - For_ You (Audio).mp3" type="audio/mpeg">
+        </audio>
+        
+        <!-- Final message button -->
+        <button id="finalMsgBtn" class="final-msg-btn">Ver mensaje final</button>
+        
+        <!-- Final letter section -->
+        <div id="finalLetter" class="final-letter">
+            <h2>Carta final</h2>
+            <p>Contenido de la carta final...</p>
+        </div>
+    </div>
+
+    <!-- Modal for gallery images -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <img id="modalImg" class="modal-img">
+            <div class="modal-text">
+                <p id="modalQuestion" class="modal-question"></p>
+                <textarea id="modalAnswer" class="modal-answer" placeholder="Escribe tu respuesta aquí..."></textarea>
+                <button id="saveAnswer" class="save-answer">Guardar respuesta</button>
+            </div>
+        </div>
     </div>
     
     <script src="./assets/js/app.js"></script>
