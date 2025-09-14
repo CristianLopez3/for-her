@@ -1,490 +1,320 @@
-// Datos de las tarjetas
+// Love Anniversary Web App
+// Pinterest-style gallery with love letters and interactive questions
 
-const TYPE = {
-    TITLE: 'title',
-    MESSAGE: 'message'
-}
-
-const cardsData = [
-    {
-        type: TYPE.TITLE,
-        content: {
-            title: 'Feliz Cumpleaños N° 20',
-            subtitle: 'mi amor ❤️'
-        }
-    },
-    {
-        type: TYPE.MESSAGE,
-        content: 'Quiero desearte lo mejor en este día especial, que todos tus sueños se hagan realidad (obviamente a mi lado)🎉'
-    },
-    {
-        type: TYPE.MESSAGE,
-        content: 'Quiero que sepas que me haces mucho más feliz cada día que pasamos juntos y que deseo que esta felicidad dure hasta que nuestros corazones no puedan latir 💖'
-    },
-    {
-        type: TYPE.MESSAGE,
-        content: 'Eres la persona más increíble que conozco y me siento afortunado de tenerte en mi vida'
-    },
-    {
-        type: TYPE.MESSAGE,
-        content: 'Espero que este nuevo año de vida esté lleno de aventuras, amor y mucha felicidad (a mi lado tambien jeje)🎂'
-    },
-    {
-        type: TYPE.MESSAGE,
-        content: 'Es tu primer cumpleaños a mi lado y quiero que sepas que es solo un primer paso para una vida llena de esta celebración.'
-    }, 
-    {
-        type: TYPE.MESSAGE,
-        content: 'Siempre estaré aquí para apoyarte en cada paso de tu camino'
-    },
-    {
-        type: TYPE.MESSAGE,
-        content: 'Gracias por ser esa mujer maravillosa que me quiere y soporta a pesar de todos mis defectos 😊'
-    },
-    {
-        type: TYPE.MESSAGE,
-        content: 'Siempre que estoy en tus brazos pienso "aqui es donde pertenezco", y espero que dure para siempre 🎵'
-    }, 
-    {
-        type: TYPE.MESSAGE,
-        content: "Ahora que estoy contigo, quiero recordar este momento para toda mi vida porque realmente amo tu compañia."
-    },
-    {
-        type: TYPE.MESSAGE,
-        content: 'Estar o no estar contigo es la unidad de medida de mi tiempo.'
-    }, 
-    {
-        type: TYPE.MESSAGE,
-        content: 'Y te elegiría a ti; en cien vidas, en cien mundos, en cualquier versión de la realidad, te encontraría y te elegiría'
-    },
-    {
-        type: TYPE.MESSAGE,
-        content: "BTW, que hermosa te debes ver leyendo esto 🥰"
-    }, 
-    {
-        type: TYPE.MESSAGE,
-        content: 'Saber que estaras en mi futuro me llena de pasion para poder lograr cosas que quiero compartir contigo, te amo Karen y quiero que sepas que siempre estare de tu lado y para ti, gracias por llegar a mi vida y darme una razon para esforzarme, muaaa 💗'
-    }
+// Love letters for each image
+const loveLetters = [
+    "I still remember our first smile together 💕",
+    "You make every ordinary moment feel magical ✨",
+    "Your laugh is my favorite melody 🎵",
+    "With you, I've found my forever home 🏡",
+    "Every day with you is a new adventure 🌟",
+    "Your eyes hold all my favorite memories 👀",
+    "You're my sunshine on cloudy days ☀️",
+    "Together we create the most beautiful story 📖",
+    "Your love makes me the best version of myself 💖",
+    "In your arms, I've found my peace 🕊️",
+    "You're the reason I believe in fairy tales 🧚‍♀️",
+    "Our love grows stronger with every heartbeat 💓"
 ];
 
-// Preguntas románticas para el modal
-const preguntas = [
-    "¿Cuál es tu recuerdo favorito de nosotros?",
-    "¿Qué es lo que más te gusta de nuestra relación?",
-    "¿Qué sueño te gustaría cumplir juntos?",
-    "¿Qué canción te recuerda a nosotros?",
-    "¿Qué lugar te gustaría visitar conmigo?",
-    "¿Qué te enamoró de mí?",
-    "¿Qué te gustaría decirme hoy?",
-    "¿Cómo imaginas nuestro futuro juntos?"
+// Romantic questions for the interactive section
+const romanticQuestions = [
+    "What's your favorite memory of us? 💭",
+    "What do you love most about our relationship? 💕",
+    "What dream would you like us to fulfill together? ✨",
+    "Which song reminds you of us? 🎵",
+    "Where would you like to travel with me? 🌍",
+    "What made you fall in love with me? 💘",
+    "What would you like to tell me today? 💌",
+    "How do you imagine our future together? 🌅"
 ];
 
-// Generar galería de imágenes tipo masonry
-const gallery = document.getElementById('gallery');
-const totalImages = 12;
-for (let i = 1; i <= totalImages; i++) {
-    const item = document.createElement('div');
-    item.className = 'gallery-item';
-    item.dataset.index = i - 1;
-    item.innerHTML = `
-        <img class="gallery-img" src="./assets/img/image${i}.jpg" alt="Foto ${i}">
-        <div class="gallery-overlay"><span>💖</span></div>
-    `;
-    gallery.appendChild(item);
-}
-
-// Modal
-const modal = document.getElementById('modal');
-const modalImg = document.getElementById('modalImg');
-const modalQuestion = document.getElementById('modalQuestion');
-const modalAnswer = document.getElementById('modalAnswer');
-const saveAnswer = document.getElementById('saveAnswer');
-const closeModal = document.getElementById('closeModal');
-
-let currentImgIndex = 0;
-
-// Mostrar modal al hacer click en imagen
-gallery.addEventListener('click', e => {
-    const item = e.target.closest('.gallery-item');
-    if (!item) return;
-    currentImgIndex = Number(item.dataset.index);
-    showModal(currentImgIndex);
-});
-
-function showModal(index) {
-    modal.classList.add('active');
-    modalImg.src = `./assets/img/${index + 1}.jpg`;
-    modalQuestion.textContent = preguntas[index % preguntas.length];
-    // Cargar respuesta guardada
-    const saved = localStorage.getItem('respuesta_' + index);
-    modalAnswer.value = saved || '';
-    setTimeout(() => modalAnswer.focus(), 300);
-}
-
-// Guardar respuesta
-saveAnswer.addEventListener('click', () => {
-    localStorage.setItem('respuesta_' + currentImgIndex, modalAnswer.value.trim());
-    saveAnswer.textContent = "¡Guardado!";
-    setTimeout(() => saveAnswer.textContent = "Guardar respuesta", 1200);
-});
-
-// Cerrar modal
-closeModal.addEventListener('click', () => {
-    modal.classList.remove('active');
-});
-window.addEventListener('keydown', e => {
-    if (e.key === "Escape") modal.classList.remove('active');
-});
-
-// Música de fondo
-const musicBtn = document.getElementById('music-btn');
-const bgMusic = document.getElementById('bg-music');
-let isPlaying = false;
-musicBtn.addEventListener('click', () => {
-    if (isPlaying) {
-        bgMusic.pause();
-        isPlaying = false;
-        musicBtn.style.background = "var(--primario)";
-    } else {
-        bgMusic.play();
-        isPlaying = true;
-        musicBtn.style.background = "var(--acento)";
-    }
-});
-bgMusic.addEventListener('ended', () => { isPlaying = false; });
-
-// Mensaje final y carta animada
-const finalMsgBtn = document.getElementById('finalMsgBtn');
-const finalLetter = document.getElementById('finalLetter');
-finalMsgBtn.addEventListener('click', () => {
-    finalLetter.classList.add('active');
-    finalLetter.scrollIntoView({ behavior: "smooth" });
-});
-
-// Animación fade-in para las fotos
-document.querySelectorAll('.gallery-item').forEach((item, i) => {
-    item.style.opacity = 0;
-    setTimeout(() => {
-        item.style.opacity = 1;
-        item.style.transition = "opacity 0.8s";
-    }, 200 + i * 120);
-});
-
-// Typing effect para el título
-const mainTitle = document.querySelector('.main-title');
-if (mainTitle) {
-    const text = mainTitle.textContent;
-    mainTitle.textContent = "";
-    let idx = 0;
-    function type() {
-        if (idx < text.length) {
-            mainTitle.textContent += text[idx++];
-            setTimeout(type, 60);
-        }
-    }
-    type();
-}
-
-// Clase para el efecto de confeti
-class ConfettiEffect {
+class LoveAnniversaryApp {
     constructor() {
-        this.canvas = null;
-        this.ctx = null;
-        this.confetti = [];
-        this.animationId = null;
-    }
-
-    createCanvas() {
-        this.canvas = document.createElement('canvas');
-        this.canvas.style.position = 'fixed';
-        this.canvas.style.top = '0';
-        this.canvas.style.left = '0';
-        this.canvas.style.width = '100%';
-        this.canvas.style.height = '100%';
-        this.canvas.style.pointerEvents = 'none';
-        this.canvas.style.zIndex = '1000';
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
-        
-        document.body.appendChild(this.canvas);
-        this.ctx = this.canvas.getContext('2d');
-    }
-
-    createConfettiPiece() {
-        const colors = ['#e3ca56', '#561c25', '#e1e3e0', '#f0d670', '#ff69b4', '#ff6b6b', '#4ecdc4'];
-        return {
-            x: Math.random() * this.canvas.width,
-            y: -10,
-            vx: (Math.random() - 0.5) * 2,
-            vy: Math.random() * 3 + 2,
-            rotation: Math.random() * 360,
-            rotationSpeed: (Math.random() - 0.5) * 10,
-            color: colors[Math.floor(Math.random() * colors.length)],
-            size: Math.random() * 8 + 3,
-            gravity: 0.1
-        };
-    }
-
-    start() {
-        this.createCanvas();
-        
-        // Crear confeti inicial
-        for (let i = 0; i < 150; i++) {
-            this.confetti.push(this.createConfettiPiece());
-        }
-        
-        this.animate();
-        
-        // Remover el confeti después de 6 segundos
-        setTimeout(() => {
-            this.stop();
-        }, 6000);
-    }
-
-    animate() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        
-        for (let i = this.confetti.length - 1; i >= 0; i--) {
-            const piece = this.confetti[i];
-            
-            // Actualizar posición
-            piece.x += piece.vx;
-            piece.y += piece.vy;
-            piece.vy += piece.gravity;
-            piece.rotation += piece.rotationSpeed;
-            
-            // Dibujar confeti
-            this.ctx.save();
-            this.ctx.translate(piece.x, piece.y);
-            this.ctx.rotate(piece.rotation * Math.PI / 180);
-            this.ctx.fillStyle = piece.color;
-            this.ctx.fillRect(-piece.size / 2, -piece.size / 2, piece.size, piece.size / 3);
-            this.ctx.restore();
-            
-            // Remover confeti que salió de la pantalla
-            if (piece.y > this.canvas.height + 50) {
-                this.confetti.splice(i, 1);
-            }
-        }
-        
-        if (this.confetti.length > 0) {
-            this.animationId = requestAnimationFrame(() => this.animate());
-        } else {
-            this.stop();
-        }
-    }
-
-    stop() {
-        if (this.animationId) {
-            cancelAnimationFrame(this.animationId);
-        }
-        if (this.canvas) {
-            document.body.removeChild(this.canvas);
-        }
-    }
-}
-
-class BirthdayCarousel {
-    constructor() {
-        this.currentIndex = 0;
-        this.totalCards = cardsData.length;
-        this.carouselTrack = document.getElementById('carouselTrack');
-        this.carouselIndicators = document.getElementById('carouselIndicators');
-        this.prevBtn = document.getElementById('prevBtn');
-        this.nextBtn = document.getElementById('nextBtn');
-        this.autoSlideInterval = null;
-        this.isTransitioning = false;
-        
+        this.currentQuestionIndex = 0;
+        this.totalImages = 12;
+        this.isPlaying = false;
         this.init();
     }
-    
+
     init() {
-        this.createCards();
-        this.createIndicators();
-        this.setupEventListeners();
-        this.startAutoSlide();
-        this.updateCarousel();
-        this.checkFirstVisit();
+        this.createGallery();
+        this.setupMusicPlayer();
+        this.setupModal();
+        this.setupQuestionsCarousel();
+        this.animateTitle();
     }
 
-    checkFirstVisit() {
-        
-        // Iniciar confeti después de un pequeño delay
-        setTimeout(() => {
-            const confetti = new ConfettiEffect();
-            confetti.start();
-        }, 500);
+    // Create Pinterest-style masonry gallery
+    createGallery() {
+        const gallery = document.getElementById('gallery');
+        if (!gallery) return;
 
-    }
-    
-    createCards() {
-        this.carouselTrack.innerHTML = '';
+        // Check for different image extensions
+        const imageExtensions = ['jpg', 'jpeg'];
         
-        // Crear tarjetas duplicadas para efecto infinito
-        // Agregamos las tarjetas originales + una copia al final + una copia al inicio
-        const allCards = [...cardsData, ...cardsData, ...cardsData];
-        
-        allCards.forEach((cardData, index) => {
-            const card = document.createElement('div');
-            card.className = `card ${cardData.type}-card`;
+        for (let i = 1; i <= this.totalImages; i++) {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item.dataset.index = i - 1;
             
-            if (cardData.type === 'title') {
-                card.innerHTML = `
-                    <h1>${cardData.content.title}</h1>
-                    <p class="subtitle">${cardData.content.subtitle}</p>
-                `;
+            // Try different extensions for each image
+            let imageSrc = `./assets/img/image${i}.jpg`;
+            if (i === 1 || i === 3 || i === 4 || i === 5 || i === 6) {
+                imageSrc = `./assets/img/image${i}.jpeg`;
+            }
+            
+            item.innerHTML = `
+                <img class="gallery-img" src="${imageSrc}" alt="Memory ${i}" onerror="this.src='./assets/img/image${i}.jpeg'">
+                <div class="gallery-overlay">
+                    <span>${loveLetters[i - 1] || "Our love story continues... 💕"}</span>
+                </div>
+            `;
+            
+            // Add staggered animation delay
+            item.style.animationDelay = `${(i - 1) * 0.1}s`;
+            
+            gallery.appendChild(item);
+        }
+    }
+
+    // Setup music player functionality
+    setupMusicPlayer() {
+        const musicBtn = document.getElementById('music-btn');
+        const bgMusic = document.getElementById('bg-music');
+        
+        if (!musicBtn || !bgMusic) return;
+
+        musicBtn.addEventListener('click', () => {
+            if (this.isPlaying) {
+                bgMusic.pause();
+                this.isPlaying = false;
+                musicBtn.classList.remove('playing');
+                musicBtn.textContent = '🎶';
             } else {
-                card.innerHTML = `<p>${cardData.content}</p>`;
+                bgMusic.play().catch(e => {
+                    console.log('Audio play failed:', e);
+                });
+                this.isPlaying = true;
+                musicBtn.classList.add('playing');
+                musicBtn.textContent = '🎵';
             }
+        });
+
+        bgMusic.addEventListener('ended', () => {
+            this.isPlaying = false;
+            musicBtn.classList.remove('playing');
+            musicBtn.textContent = '🎶';
+        });
+
+        bgMusic.addEventListener('pause', () => {
+            this.isPlaying = false;
+            musicBtn.classList.remove('playing');
+            musicBtn.textContent = '🎶';
+        });
+    }
+
+    // Setup modal for full image view
+    setupModal() {
+        const gallery = document.getElementById('gallery');
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modalImg');
+        const modalMessage = document.getElementById('modalMessage');
+        const closeModal = document.getElementById('closeModal');
+
+        if (!gallery || !modal) return;
+
+        // Open modal when clicking on gallery item
+        gallery.addEventListener('click', (e) => {
+            const item = e.target.closest('.gallery-item');
+            if (!item) return;
+
+            const index = parseInt(item.dataset.index);
+            const imgSrc = item.querySelector('.gallery-img').src;
             
-            this.carouselTrack.appendChild(card);
+            modalImg.src = imgSrc;
+            modalMessage.textContent = loveLetters[index] || "Our love story continues... 💕";
+            modal.classList.add('active');
+            
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
         });
+
+        // Close modal
+        const closeModalHandler = () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        };
+
+        closeModal.addEventListener('click', closeModalHandler);
         
-        // Comenzar desde el segundo set (índice 5) para tener copias en ambos lados
-        this.currentIndex = this.totalCards;
-        this.carouselTrack.style.transform = `translateX(-${this.currentIndex * 100}%)`;
-    }
-    
-    createIndicators() {
-        this.carouselIndicators.innerHTML = '';
-        
-        cardsData.forEach((_, index) => {
-            const indicator = document.createElement('div');
-            indicator.className = 'indicator';
-            indicator.addEventListener('click', () => {
-                this.goToSlide(index);
-            });
-            this.carouselIndicators.appendChild(indicator);
-        });
-    }
-    
-    setupEventListeners() {
-        this.prevBtn.addEventListener('click', () => {
-            if (!this.isTransitioning) {
-                this.prevSlide();
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModalHandler();
             }
         });
-        
-        this.nextBtn.addEventListener('click', () => {
-            if (!this.isTransitioning) {
-                this.nextSlide();
-            }
-        });
-        
-        // Evento para detectar cuando termina la transición
-        this.carouselTrack.addEventListener('transitionend', () => {
-            this.handleTransitionEnd();
-        });
-        
-        // Touch events para móvil
-        let startX = 0;
-        let endX = 0;
-        
-        this.carouselTrack.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-        });
-        
-        this.carouselTrack.addEventListener('touchmove', (e) => {
-            endX = e.touches[0].clientX;
-        });
-        
-        this.carouselTrack.addEventListener('touchend', () => {
-            if (!this.isTransitioning) {
-                const diff = startX - endX;
-                if (Math.abs(diff) > 50) { // Mínimo 50px de desplazamiento
-                    if (diff > 0) {
-                        this.nextSlide();
-                    } else {
-                        this.prevSlide();
-                    }
-                }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModalHandler();
             }
         });
     }
-    
-    handleTransitionEnd() {
-        this.isTransitioning = false;
-        
-        // Si estamos en la primera copia (índices 0-4), saltar al final del set original
-        if (this.currentIndex < this.totalCards) {
-            this.carouselTrack.style.transition = 'none';
-            this.currentIndex = this.currentIndex + (this.totalCards * 2);
-            this.carouselTrack.style.transform = `translateX(-${this.currentIndex * 100}%)`;
-            setTimeout(() => {
-                this.carouselTrack.style.transition = 'transform 0.5s ease-in-out';
-            }, 50);
+
+    // Setup interactive questions carousel
+    setupQuestionsCarousel() {
+        const questionText = document.getElementById('questionText');
+        const questionInput = document.getElementById('questionInput');
+        const prevButton = document.getElementById('prevQuestion');
+        const nextButton = document.getElementById('nextQuestion');
+        const saveButton = document.getElementById('saveQuestion');
+        const currentQuestionNum = document.getElementById('currentQuestionNum');
+        const totalQuestions = document.getElementById('totalQuestions');
+
+        if (!questionText || !questionInput) return;
+
+        // Initialize
+        totalQuestions.textContent = romanticQuestions.length;
+        this.updateQuestion();
+
+        // Previous question
+        prevButton.addEventListener('click', () => {
+            if (this.currentQuestionIndex > 0) {
+                this.saveCurrentAnswer();
+                this.currentQuestionIndex--;
+                this.updateQuestion();
+            }
+        });
+
+        // Next question
+        nextButton.addEventListener('click', () => {
+            if (this.currentQuestionIndex < romanticQuestions.length - 1) {
+                this.saveCurrentAnswer();
+                this.currentQuestionIndex++;
+                this.updateQuestion();
+            }
+        });
+
+        // Save answer
+        saveButton.addEventListener('click', () => {
+            this.saveCurrentAnswer();
+            this.showSaveConfirmation();
+        });
+
+        // Auto-save on input change
+        questionInput.addEventListener('input', () => {
+            this.saveCurrentAnswer();
+        });
+
+        // Navigate with arrow keys
+        document.addEventListener('keydown', (e) => {
+            if (questionInput === document.activeElement) return;
+            
+            if (e.key === 'ArrowLeft' && this.currentQuestionIndex > 0) {
+                prevButton.click();
+            } else if (e.key === 'ArrowRight' && this.currentQuestionIndex < romanticQuestions.length - 1) {
+                nextButton.click();
+            }
+        });
+    }
+
+    updateQuestion() {
+        const questionText = document.getElementById('questionText');
+        const questionInput = document.getElementById('questionInput');
+        const prevButton = document.getElementById('prevQuestion');
+        const nextButton = document.getElementById('nextQuestion');
+        const currentQuestionNum = document.getElementById('currentQuestionNum');
+
+        // Update question text and number
+        questionText.textContent = romanticQuestions[this.currentQuestionIndex];
+        currentQuestionNum.textContent = this.currentQuestionIndex + 1;
+
+        // Load saved answer
+        const savedAnswer = localStorage.getItem(`answer_${this.currentQuestionIndex}`);
+        questionInput.value = savedAnswer || '';
+
+        // Update button states
+        prevButton.disabled = this.currentQuestionIndex === 0;
+        nextButton.disabled = this.currentQuestionIndex === romanticQuestions.length - 1;
+
+        // Focus input
+        setTimeout(() => questionInput.focus(), 100);
+    }
+
+    saveCurrentAnswer() {
+        const questionInput = document.getElementById('questionInput');
+        if (questionInput) {
+            const answer = questionInput.value.trim();
+            localStorage.setItem(`answer_${this.currentQuestionIndex}`, answer);
         }
-        
-        // Si estamos en la última copia (índices 10-14), saltar al inicio del set original
-        if (this.currentIndex >= this.totalCards * 2) {
-            this.carouselTrack.style.transition = 'none';
-            this.currentIndex = this.currentIndex - (this.totalCards * 2);
-            this.carouselTrack.style.transform = `translateX(-${this.currentIndex * 100}%)`;
-            setTimeout(() => {
-                this.carouselTrack.style.transition = 'transform 0.5s ease-in-out';
-            }, 50);
-        }
     }
-    
-    startAutoSlide() {
-        this.autoSlideInterval = setInterval(() => {
-            if (!this.isTransitioning) {
-                this.nextSlide();
+
+    showSaveConfirmation() {
+        const saveButton = document.getElementById('saveQuestion');
+        const originalText = saveButton.textContent;
+        
+        saveButton.textContent = '💕 Saved!';
+        saveButton.style.background = 'var(--secondary)';
+        saveButton.style.color = 'white';
+        
+        setTimeout(() => {
+            saveButton.textContent = originalText;
+            saveButton.style.background = 'var(--accent)';
+            saveButton.style.color = 'var(--secondary)';
+        }, 1500);
+    }
+
+    // Animate title with typing effect
+    animateTitle() {
+        const mainTitle = document.querySelector('.main-title');
+        if (!mainTitle) return;
+
+        const text = mainTitle.textContent;
+        mainTitle.textContent = '';
+        mainTitle.style.opacity = '1';
+        
+        let index = 0;
+        const typeNextChar = () => {
+            if (index < text.length) {
+                mainTitle.textContent += text[index];
+                index++;
+                setTimeout(typeNextChar, 80);
             }
-        }, 5000); // 5 segundos
-    }
-    
-    stopAutoSlide() {
-        if (this.autoSlideInterval) {
-            clearInterval(this.autoSlideInterval);
-        }
-    }
-    
-    restartAutoSlide() {
-        this.stopAutoSlide();
-        this.startAutoSlide();
-    }
-    
-    goToSlide(targetIndex) {
-        if (this.isTransitioning) return;
+        };
         
-        // Convertir el índice del indicador al índice real del carousel
-        const realIndex = targetIndex + this.totalCards;
-        this.currentIndex = realIndex;
-        this.updateCarousel();
-        this.restartAutoSlide();
-    }
-    
-    nextSlide() {
-        if (this.isTransitioning) return;
-        
-        this.isTransitioning = true;
-        this.currentIndex++;
-        this.updateCarousel();
-    }
-    
-    prevSlide() {
-        if (this.isTransitioning) return;
-        
-        this.isTransitioning = true;
-        this.currentIndex--;
-        this.updateCarousel();
-    }
-    
-    updateCarousel() {
-        const translateX = -this.currentIndex * 100;
-        this.carouselTrack.style.transform = `translateX(${translateX}%)`;
-        
-        // Actualizar indicadores basado en el índice real
-        const indicatorIndex = this.currentIndex % this.totalCards;
-        const indicators = this.carouselIndicators.querySelectorAll('.indicator');
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === indicatorIndex);
-        });
+        // Start typing after a short delay
+        setTimeout(typeNextChar, 500);
     }
 }
 
-// Inicializar el carousel cuando el DOM esté listo
+// Initialize the app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    new BirthdayCarousel();
+    new LoveAnniversaryApp();
+});
+
+// Add some extra touches for better mobile experience
+document.addEventListener('touchstart', function() {}, {passive: true});
+
+// Prevent zoom on double tap for iOS
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function (event) {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300 && !event.target.closest('.gallery-item')) {
+        event.preventDefault();
+    }
+    lastTouchEnd = now;
+}, false);
+
+// Add loading animation for images
+document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('.gallery-img');
+    images.forEach((img, index) => {
+        img.addEventListener('load', () => {
+            img.style.opacity = '1';
+        });
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.5s ease';
+    });
 });
