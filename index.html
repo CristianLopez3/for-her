@@ -3,29 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="./assets/img/icon.png">
-    <title>Feliz Cumpleaños</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💕</text></svg>">
+    <title>Our Love Anniversary</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <div class="carousel-container">
-            <div class="carousel-wrapper">
-                <div class="carousel-track" id="carouselTrack">
-                    <!-- Las tarjetas se generarán dinámicamente -->
+    <!-- Main Gallery Section -->
+    <main class="main-content">
+        <h1 class="main-title">Our Beautiful Journey Together ❤️</h1>
+        
+        <!-- Pinterest-style Photo Gallery -->
+        <div class="gallery" id="gallery">
+            <!-- Images will be generated dynamically -->
+        </div>
+
+        <!-- Floating Music Player -->
+        <button class="music-btn" id="music-btn" title="Play/Pause Music">
+            🎶
+        </button>
+        <audio id="bg-music" preload="auto">
+            <source src="./assets/music/Kali Uchis - For_ You (Audio).mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- Interactive Questions Section -->
+        <section class="questions-section">
+            <h2 class="questions-title">Now, may we play? 💕</h2>
+            <div class="questions-carousel" id="questionsCarousel">
+                <div class="question-card" id="questionCard">
+                    <h3 class="question-text" id="questionText">Loading...</h3>
+                    <input type="text" class="question-input" id="questionInput" placeholder="Your answer...">
+                    <div class="question-controls">
+                        <button class="question-btn prev" id="prevQuestion">❮</button>
+                        <button class="question-btn save" id="saveQuestion">Save</button>
+                        <button class="question-btn next" id="nextQuestion">❯</button>
+                    </div>
+                    <div class="question-indicator">
+                        <span id="currentQuestionNum">1</span> / <span id="totalQuestions">8</span>
+                    </div>
                 </div>
             </div>
-            <div class="carousel-controls">
-                <button class="carousel-btn prev" id="prevBtn">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="carousel-indicators" id="carouselIndicators">
-                    <!-- Los indicadores se generarán dinámicamente -->
-                </div>
-                <button class="carousel-btn next" id="nextBtn">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+        </section>
+    </main>
+
+    <!-- Modal for Full Image View -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="closeModal">&times;</span>
+            <img class="modal-img" id="modalImg" src="" alt="">
+            <div class="modal-message">
+                <p id="modalMessage">Our love story continues...</p>
             </div>
         </div>
     </div>
