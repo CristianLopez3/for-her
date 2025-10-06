@@ -47,7 +47,7 @@ const notesData = [
     title: "Our Future",
     overview: "The future I imagine with you",
     description:
-      "It's quite a odyssey to think about the future, but I see us growing old together, supporting each other through everything, and building a beautiful life filled with love, laughter, and endless happiness - of course I cannot deny that there could be some challenges along the way but I know for that mean while you loved me I will always give my best to make you happy and proud of me.",
+      "It's quite a odyssey to think about the future - we're young and I'm still learning about life and love, and over all not perfect, however I know something for sure and it's that I love you and I want to be with you, that's kinda stupid to say because you think I don't, but I really do, words aren't enough to express my feelings and to make you feel sure about me and my love for you, but I want to try and give my everything on it even though I can commit mistakes I will resolve them and always give you the corresponding respect and confidence that you deserve, Karen, if you have doubts about us don't doubt and tell me because my objective is to make you happy and if that includes me being part of your life then I will be very happy however if that't not the case I will understand and I will try to support you in the best way I can.",
   },
 ];
 
