@@ -1,0 +1,228 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tangerine:wght@400;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-image: url('../img/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+p {
+    font-weight: 400;
+    font-style: normal;
+}
+
+.letter {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.letter h1 {
+    font-size: 1.8rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    color: #d62828;
+    margin-bottom: 10px;
+}
+
+.letter p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.signature {
+    font-family: "Tangerine", cursive;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #444;
+    text-align: right;
+}
+
+@media (max-width: 400px) {
+    .letter h1 {
+        font-size: 1.5rem;
+    }
+
+    .letter p {
+        font-size: 0.95rem;
+    }
+}
+
+
+/**
+    * FONTS
+*/
+
+.poppins-thin {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.poppins-extralight {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.poppins-light {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.poppins-semibold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-extrabold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.poppins-black {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.poppins-thin-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.poppins-extralight-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.poppins-light-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.poppins-regular-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.poppins-medium-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.poppins-semibold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.poppins-bold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.poppins-extrabold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.poppins-black-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}
+
+
+
+.tangerine-regular {
+    font-family: "Tangerine", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.tangerine-bold {
+    font-family: "Tangerine", cursive;
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Botón Volver al Dashboard */
+.back-dashboard {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.dashboard-btn {
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #191414;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 15px;
+    text-decoration: none;
+    border: #191414 2px solid;
+}
+
+.dashboard-btn i {
+    color: #1db954;
+    font-size: 1.1rem;
+    margin-right: 4px;
+    transition: color 0.3s;
+}
