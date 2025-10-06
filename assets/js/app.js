@@ -17,6 +17,12 @@ const cardData = [
         description: "Our special moments together - for our anniversary",
         icon: "assets/img/icons/twice-icon.png",
         route: "pages/aniversary-pinterest/index.html"
+    },
+    {
+        title: "Spotify Notes",
+        description: "Beautiful love notes with Spotify-inspired dropdown",
+        icon: "assets/img/icons/kali-icon.png",
+        route: "pages/spotify-notes/index.html"
     }
 ];
 
