@@ -6,6 +6,7 @@ body {
   padding: 20px;
   min-height: 100vh;
   align-items: start;
+  overflow-y: auto;
 }
 
 /* Home container */
