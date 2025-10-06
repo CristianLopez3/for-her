@@ -20,7 +20,7 @@ const cardData = [
     },
     {
         title: "Spotify Notes",
-        description: "Beautiful love notes with Spotify-inspired dropdown",
+        description: "Our one year anniversary and three months of being a couple",
         icon: "assets/img/icons/taylor-2-swift.png",
         route: "pages/spotify-notes/index.html"
     }
