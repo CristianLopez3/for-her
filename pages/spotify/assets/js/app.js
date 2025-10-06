@@ -451,12 +451,12 @@ document.addEventListener('DOMContentLoaded', function () {
         updateCarousel();
     }
 
-    // Auto-play carousel
-    function startAutoPlay() {
-        setInterval(() => {
-            nextCard();
-        }, 5000); // Change card every 5 seconds
-    }
+    // // Auto-play carousel
+    // function startAutoPlay() {
+    //     setInterval(() => {
+    //         nextCard();
+    //     }, 5000); // Change card every 5 seconds
+    // }
 
     // Carousel event listeners
     prevCardBtn.addEventListener('click', previousCard);

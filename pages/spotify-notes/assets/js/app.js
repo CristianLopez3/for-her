@@ -43,7 +43,7 @@ const notesData = [
       "I want to take a moment to acknowledge the times I've hurt you, even unintentionally. My words and actions haven't always reflected the love I feel for you. For the moments I've let you down, I'm truly sorry. You deserve the best of me, and I'm committed to being better for you every day and every way, I love that of you, and I will always strive to show you that love in all that I do.",
   },
   {
-    icon: "./assets/img/five.png",
+    icon: "./assets/img/seven.png",
     title: "Our Future",
     overview: "The future I imagine with you",
     description:

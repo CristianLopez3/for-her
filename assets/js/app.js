@@ -9,7 +9,7 @@ const cardData = [
     {
         title: "Love Letter",
         description: "Go and check, I wrote you a letter",
-        icon: "assets/img/icons/kali-icon.png",
+        icon: "assets/img/icons/pompompurin.png",
         route: "pages/cards/index.html"
     },
     {
