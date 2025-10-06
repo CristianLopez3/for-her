@@ -2,20 +2,20 @@
 const cardData = [
     {
         title: "Spotify Cards",
-        description: "That time when we got 9 months",
-        icon: "assets/img/house-icon.svg",
+        description: "That time when we celebrated our 9-month anniversary",
+        icon: "assets/img/icons/ophelia-icon.png",
         route: "pages/spotify/index.html"
     },
     {
-        title: "Love Notes",
-        description: "Beautiful letters just for you",
-        icon: "assets/img/house-icon.svg",
+        title: "Love Letter",
+        description: "Go and check, I wrote you a letter",
+        icon: "assets/img/icons/kali-icon.png",
         route: "pages/cards/index.html"
     },
     {
         title: "Anniversary Pinterest",
-        description: "Our special moments together",
-        icon: "assets/img/house-icon.svg",
+        description: "Our special moments together - for our anniversary",
+        icon: "assets/img/icons/twice-icon.png",
         route: "pages/aniversary-pinterest/index.html"
     }
 ];
