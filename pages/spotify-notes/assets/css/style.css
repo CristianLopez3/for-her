@@ -1,10 +1,14 @@
 /* Import Spotify base styles */
-@import url('../../spotify/assets/css/style.css');
+@import url('../../../spotify/assets/css/style.css');
 
 /* Override for notes section */
 body {
     align-items: start;
     padding-top: 40px;
+    background: linear-gradient(180deg, #181818 0%, #282828 100%);
+    color: #fff;
+    font-family: 'Poppins', 'Arial', sans-serif;
+    overflow-y: auto;
 }
 
 .container {
@@ -25,16 +29,14 @@ body {
     align-items: center;
     text-align: center;
     gap: 8px;
-    background: #fffafc;
-    color: #191414;
+    background: #191414;
+    color: #fff;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: 1rem;
     padding: 10px 20px;
     border-radius: 30px;
     text-decoration: none;
-    border: #191414 2px solid;
-    transition: all 0.3s ease;
 }
 
 .dashboard-btn:hover {
@@ -50,22 +52,27 @@ body {
     transition: color 0.3s;
 }
 
-.dashboard-btn:hover i {
-    color: white;
-}
-
 /* Notes Container */
 .notes-container {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    /* gap: 15px; */
+}
+
+.notes-table-container {
+  /* margin: 40px auto; */
+  max-width: 600px;
+  background: rgba(24,24,24,0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px 0 rgba(29,185,84,0.15);
+  padding: 0 0 24px 0;
 }
 
 /* Individual Note Item */
 .note-item {
     background: linear-gradient(135deg, #191414 0%, #2d1b1b 100%);
-    border-radius: 15px;
+    /* border-radius: 15px; */
     padding: 20px;
     box-shadow: 
         0 4px 15px rgba(0, 0, 0, 0.4),
@@ -112,7 +119,7 @@ body {
 .note-icon {
     width: 50px;
     height: 50px;
-    border-radius: 10px;
+    border-radius: 100%;
     background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
     display: flex;
     align-items: center;
@@ -202,6 +209,90 @@ body {
     padding-left: 65px;
 }
 
+/* Notes Table */
+.notes-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.notes-table thead tr {
+  background: linear-gradient(90deg, #1db954 0%, #181818 100%);
+}
+
+.notes-table th, .notes-table td {
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.notes-table th {
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #222;
+}
+
+.notes-table td {
+  border-bottom: 1px solid #222;
+  vertical-align: middle;
+}
+
+.col-number {
+  width: 40px;
+  text-align: center;
+  color: #b3b3b3;
+}
+
+.col-title {
+  width: 220px;
+}
+
+.col-overview {
+  width: 300px;
+  color: #b3b3b3;
+}
+
+.notes-table tbody tr:hover {
+  background: rgba(29,185,84,0.08);
+  transition: background 0.2s;
+}
+
+.notes-table .note-title {
+  font-weight: 600;
+  color: #fff;
+  font-size: 1rem;
+}
+.notes-table .note-overview {
+  color: #b3b3b3;
+  font-size: 0.95rem;
+  margin-top: 2px;
+}
+.notes-table .dropdown-btn {
+  background: none;
+  border: none;
+  color: #1db954;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.notes-table .dropdown-btn:hover {
+  color: #17a74a;
+}
+.note-description-cell {
+  background: #222;
+  color: #b3b3b3;
+  font-size: 0.97rem;
+  padding: 16px 24px;
+  border-bottom: 1px solid #222;
+}
+.note-description {
+  animation: fadeIn 0.3s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
@@ -257,3 +348,4 @@ body {
         padding: 8px 16px;
     }
 }
+

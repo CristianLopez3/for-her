@@ -21,7 +21,7 @@ const cardData = [
     {
         title: "Spotify Notes",
         description: "Beautiful love notes with Spotify-inspired dropdown",
-        icon: "assets/img/icons/kali-icon.png",
+        icon: "assets/img/icons/taylor-2-swift.png",
         route: "pages/spotify-notes/index.html"
     }
 ];
