@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Dates",
+    "coverImage": "../../assets/img/icons/ophelia-icon.png",
+    "slides": [
+      {
+        "image": "../../assets/img/icons/ophelia-icon.png",
+        "audio": "../../pages/spotify/assets/mp3/the-fate-of-ophelia.mp3",
+        "text": "My Love, this will be replaced by our next date"
+      }
+    ]
+  },
+  {
+    "title": "Us",
+    "coverImage": "../../pages/aniversary-pinterest/assets/img/image1.jpeg",
+    "slides": [
+      {
+        "image": "../../pages/aniversary-pinterest/assets/img/image1.jpeg",
+        "audio": "../../pages/highlights/assets/data/audios/august.mp3",
+        "text": "Do you remember your duck?"
+      }
+    ]
+  }
+]
