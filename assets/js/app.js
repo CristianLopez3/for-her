@@ -26,6 +26,15 @@ const cardData = [
     }
 ];
 
+// Invitation data
+const invitationData = {
+    place: "Our Special Place - The Rooftop Café ☕",
+    date: "Saturday, November 15th, 2025 at 7:00 PM",
+    dressCode: "Casual Chic - Wear something comfortable but cute 💃",
+    activity: "Dinner under the stars, followed by a surprise that I've been planning just for you! 🌟",
+    whatsappNumber: "1234567890" // Replace with actual WhatsApp number
+};
+
 // Function to render cards dynamically
 function renderCards() {
     const cardsContainer = document.getElementById('cardsContainer');
@@ -50,5 +59,55 @@ function renderCards() {
     });
 }
 
+// Function to setup invitation modal
+function setupInvitationModal() {
+    const profileIcon = document.getElementById('profileIcon');
+    const modal = document.getElementById('invitationModal');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalClose = document.getElementById('modalClose');
+    
+    // Populate modal with invitation data
+    document.getElementById('invitationPlace').textContent = invitationData.place;
+    document.getElementById('invitationDate').textContent = invitationData.date;
+    document.getElementById('invitationDressCode').textContent = invitationData.dressCode;
+    document.getElementById('invitationActivity').textContent = invitationData.activity;
+    
+    // Setup WhatsApp button
+    const whatsappBtn = document.getElementById('whatsappBtn');
+    const message = encodeURIComponent(`Hi! I got your invitation! 💕`);
+    whatsappBtn.href = `https://wa.me/${invitationData.whatsappNumber}?text=${message}`;
+    
+    // Open modal when profile icon is clicked
+    profileIcon.addEventListener('click', () => {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+    
+    // Close modal when close button is clicked
+    modalClose.addEventListener('click', () => {
+        closeModal();
+    });
+    
+    // Close modal when overlay is clicked
+    modalOverlay.addEventListener('click', () => {
+        closeModal();
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+    
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
+
 // Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', renderCards);
+document.addEventListener('DOMContentLoaded', () => {
+    renderCards();
+    setupInvitationModal();
+});
