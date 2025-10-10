@@ -1,7 +1,7 @@
 [
   {
     "title": "Dates",
-    "coverImage": "../../assets/img/icons/ophelia-icon.png",
+    "coverImage": "./assets/img/icons/ophelia-icon.png",
     "slides": [
       {
         "image": "../../assets/img/icons/ophelia-icon.png",
@@ -12,7 +12,7 @@
   },
   {
     "title": "Us",
-    "coverImage": "../../pages/aniversary-pinterest/assets/img/image1.jpeg",
+    "coverImage": "./pages/aniversary-pinterest/assets/img/image1.jpeg",
     "slides": [
       {
         "image": "../../pages/aniversary-pinterest/assets/img/image1.jpeg",
