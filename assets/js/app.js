@@ -23,6 +23,12 @@ const cardData = [
         description: "Our one year anniversary and three months of being a couple",
         icon: "assets/img/icons/taylor-2-swift.png",
         route: "pages/spotify-notes/index.html"
+    },
+    {
+        title: "Highlight Stories",
+        description: "Our special moments in stories - just like Instagram highlights",
+        icon: "assets/img/icons/ophelia-icon.png",
+        route: "pages/highlights/index.html"
     }
 ];
 

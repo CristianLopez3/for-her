@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/assets/img/icon.png"
+      sizes="16x16"
+    />
+    <title>Karen - Story</title>
+    <link rel="stylesheet" href="./assets/css/carousel.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="story-container">
+      <!-- Progress bars at the top -->
+      <div class="story-progress-bars" id="progressBars">
+        <!-- Progress bars will be generated dynamically -->
+      </div>
+
+      <!-- Back button -->
+      <button class="story-back-btn" id="backBtn">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+
+      <!-- Story slides -->
+      <div class="story-slides" id="storySlides">
+        <!-- Slides will be generated dynamically -->
+      </div>
+
+      <!-- Navigation areas for tap/click -->
+      <div class="story-nav-left" id="navLeft"></div>
+      <div class="story-nav-right" id="navRight"></div>
+
+      <!-- Audio player (hidden) -->
+      <audio id="storyAudio"></audio>
+    </div>
+
+    <script src="./assets/js/carousel.js"></script>
+  </body>
+</html>

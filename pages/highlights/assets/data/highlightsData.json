@@ -1,0 +1,39 @@
+[
+  {
+    "title": "Sample Highlight",
+    "coverImage": "../../assets/img/icons/ophelia-icon.png",
+    "slides": [
+      {
+        "image": "../../assets/img/icons/ophelia-icon.png",
+        "audio": "",
+        "text": "This is a sample slide. Replace with your own content!"
+      },
+      {
+        "image": "../../assets/img/icons/twice-icon.png",
+        "audio": "",
+        "text": "Add more slides by editing highlightsData.json"
+      },
+      {
+        "image": "../../assets/img/icons/taylor-2-swift.png",
+        "audio": "",
+        "text": "Each slide can have its own image, audio, and text"
+      }
+    ]
+  },
+  {
+    "title": "Special Moments",
+    "coverImage": "../../assets/img/icons/pompompurin.png",
+    "slides": [
+      {
+        "image": "../../assets/img/icons/pompompurin.png",
+        "audio": "",
+        "text": "Create beautiful memories with photos and audio"
+      },
+      {
+        "image": "../../assets/img/icons/kali-icon.png",
+        "audio": "",
+        "text": "Share your story with the one you love ❤️"
+      }
+    ]
+  }
+]
