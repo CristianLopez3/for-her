@@ -51,7 +51,7 @@ body {
 }
 
 .story-progress-bar.active .story-progress-fill {
-    animation: progress 3s linear forwards;
+    animation: progress 30s linear forwards;
 }
 
 .story-progress-bar.completed .story-progress-fill {

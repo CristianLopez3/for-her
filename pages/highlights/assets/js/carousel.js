@@ -124,18 +124,30 @@ document.addEventListener('DOMContentLoaded', async function () {
             audioPlayer.src = slide.audio;
             audioPlayer.currentTime = 0;
             audioPlayer.play().catch(error => {
-                console.log('Audio playback failed:', error);
+            console.log('Audio playback failed:', error);
             });
+
+            // Wait 30 seconds before auto-advancing, regardless of audio length
+            clearAutoAdvance();
+            autoAdvanceTimer = setTimeout(() => {
+            nextSlide();
+            }, 30000);
         } else {
             audioPlayer.pause();
             audioPlayer.src = '';
+
+            // Wait 30 seconds before auto-advancing
+            clearAutoAdvance();
+            autoAdvanceTimer = setTimeout(() => {
+            nextSlide();
+            }, 30000);
         }
     }
     
     function startAutoAdvance() {
         autoAdvanceTimer = setTimeout(() => {
             nextSlide();
-        }, 3000); // 3 seconds per slide
+        }, 30000); // 30 seconds per slide
     }
     
     function clearAutoAdvance() {
@@ -160,7 +172,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         backBtn.addEventListener('click', () => {
             clearAutoAdvance();
             audioPlayer.pause();
-            window.location.href = './index.html';
+            window.location.href = '../../../../index.html';
         });
         
         // Navigation areas
