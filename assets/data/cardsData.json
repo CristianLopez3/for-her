@@ -2,25 +2,25 @@
     {
         "title": "Spotify Cards",
         "description": "That time when we celebrated our 9-month anniversary",
-        "icon": "assets/img/icons/ophelia-icon.png",
+        "icon": "./assets/img/icons/ophelia-icon.png",
         "route": "pages/spotify/index.html"
     },
     {
         "title": "Love Letter",
         "description": "Go and check, I wrote you a letter",
-        "icon": "assets/img/icons/pompompurin.png",
+        "icon": "./assets/img/icons/pompompurin.png",
         "route": "pages/cards/index.html"
     },
     {
         "title": "Anniversary Pinterest",
         "description": "Our special moments together - for our anniversary",
-        "icon": "assets/img/icons/twice-icon.png",
+        "icon": "./assets/img/icons/twice-icon.png",
         "route": "pages/aniversary-pinterest/index.html"
     },
     {
         "title": "Spotify Notes",
         "description": "Our one year anniversary and three months of being a couple",
-        "icon": "assets/img/icons/taylor-2-swift.png",
+        "icon": "./assets/img/icons/taylor-2-swift.png",
         "route": "pages/spotify-notes/index.html"
     }
 ]

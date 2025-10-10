@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         backBtn.addEventListener('click', () => {
             clearAutoAdvance();
             audioPlayer.pause();
-            window.location.href = '../../../../index.html';
+            window.location.href = '../../../index.html';
         });
         
         // Navigation areas
