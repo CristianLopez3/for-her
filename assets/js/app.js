@@ -28,11 +28,11 @@ const cardData = [
 
 // Invitation data
 const invitationData = {
-    place: "Our Special Place - The Rooftop Café ☕",
-    date: "Saturday, November 15th, 2025 at 7:00 PM",
-    dressCode: "Casual Chic - Wear something comfortable but cute 💃",
-    activity: "Dinner under the stars, followed by a surprise that I've been planning just for you! 🌟",
-    whatsappNumber: "1234567890" // Replace with actual WhatsApp number
+    place: "Te recojo en tu trabajo para ir a Creeps!",
+    date: "Sabado, Octubre 12 - 2:00 PM",
+    dressCode: "Casual y comodo (yo ire con jean y camiseta blanca)",
+    activity: "Comeremos, hablaremos y obvio te consentire mucho, quiero que celebremos como debe ser nuestro aniversario",
+    whatsappNumber: "3133751604" // Replace with actual WhatsApp number
 };
 
 // Function to render cards dynamically
