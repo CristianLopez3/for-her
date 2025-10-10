@@ -153,6 +153,7 @@ body {
     z-index: 50;
     cursor: pointer;
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .story-nav-left {
