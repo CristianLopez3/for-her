@@ -50,11 +50,15 @@ body {
   position: relative;
   cursor: pointer;
   transition: transform 0.8s ease, box-shadow 0.2s ease;
-  animation: borderPulse 2s infinite;
+  /* animation: borderPulse 2s infinite; */
   box-shadow: 0 0 0 0 #1db954;
 }
 
-@keyframes borderPulse {
+/** 
+* Uncomment in case of any date along with the animation property
+*/
+
+/* @keyframes borderPulse {
   0% {
     box-shadow: 0 0 0 0 #1db954, 0 0 0 0 #1db954;
     border: 1px solid #1db954;
@@ -67,7 +71,7 @@ body {
     box-shadow: 0 0 0 0 #1db954, 0 0 0 0 #1db954;
     border: 1px solid #1db954;
   }
-}
+} */
 
 .profile-icon:hover {
   transform: scale(1.05);
