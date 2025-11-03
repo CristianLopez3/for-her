@@ -12,7 +12,7 @@
 #     permissions:
 #       contents: write
 
-#     steps:
+#     stepqs:
 #       - name: Checkout code
 #         uses: actions/checkout@v3
 
