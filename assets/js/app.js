@@ -14,11 +14,11 @@ fetch(cardDataUrl)
 
 // Invitation data
 const invitationData = {
-  place: "Te recojo en tu trabajo para ir a Creeps!",
-  date: "Sabado, Octubre 12 - 2:00 PM",
-  dressCode: "Casual y comodo (yo ire con jean y camiseta blanca)",
+  place: "Depende de a que hora salgas de trabajar, yo salgo a las 5 de trabajar, tu me diras!",
+  date: "Viernes, Octubre 31 - 5:00 PM",
+  dressCode: "Casual, ya compraremos mascaras o nos maquillaremos por ahi!",
   activity:
-    "Comeremos, hablaremos y obvio te consentire mucho, quiero que celebremos como debe ser nuestro aniversario",
+    "Fiesta de halloween con conocidos, bailaremos y veremos que pasa!",
   whatsappNumber: "3133751604",
 };
 
@@ -63,7 +63,7 @@ function setupInvitationModal() {
 
   // Setup WhatsApp button
   const whatsappBtn = document.getElementById("whatsappBtn");
-  const message = encodeURIComponent(`Hi! I got your invitation! 💕`);
+  const message = encodeURIComponent(`Buenas! obvio voy mi amorcito lindo precioso rey de mi vida 💕`);
   whatsappBtn.href = `https://wa.me/${invitationData.whatsappNumber}?text=${message}`;
 
   // Open modal when profile icon is clicked
