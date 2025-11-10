@@ -20,5 +20,16 @@
         "text": "Do you remember your duck?"
       }
     ]
+  },
+  {
+    "title": "Concerts",
+    "coverImage": "./pages/highlights/assets/img/kali.jpeg",
+    "slides": [
+      {
+        "image": "./assets/img/kali.jpeg",
+        "audio": "./assets/data/audios/can_i_get_a_kiss.mp3",
+        "text": "Booked or February 18th"
+      }
+    ]
   }
 ]
