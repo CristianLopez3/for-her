@@ -55,8 +55,58 @@
   },
   {
     "id": 6,
-    "title": "I'm under development, please be patient!",
-    "text": "<span class='green'>This section is coming soon...</span>",
-    "backgroundColor": "#14201b"
+    "title": "Junio - Un Regalo",
+    "text": "Ese detalle inesperado que aún conservo.",
+    "backgroundColor": "#14201b",
+    "downloadableReward": {
+      "label": "Descargar medalla",
+      "file": "./assets/rewards/medal1.png"
+    }
+  },
+  {
+    "id": 7,
+    "title": "Julio - Playa",
+    "text": "El atardecer, las risas y la sal en el pelo.",
+    "backgroundColor": "#0f1b20",
+    "image": "./assets/img/slide7.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Agosto - Viaje Corto",
+    "text": "Un par de días que nos bastaron para desconectar.",
+    "backgroundColor": "#1b1420"
+  },
+  {
+    "id": 9,
+    "title": "Septiembre - Cocina",
+    "text": "Intentamos cocinar y terminamos pidiendo pizza.",
+    "backgroundColor": "#0f1820"
+  },
+  {
+    "id": 10,
+    "title": "Octubre - Fiesta",
+    "text": "Nos disfrazamos y fue inolvidable.",
+    "backgroundColor": "#191017",
+    "downloadableReward": {
+      "label": "Descargar premio",
+      "file": "https://co.pinterest.com/pin/774124928835750/"
+    }
+  },
+  {
+    "id": 11,
+    "title": "Noviembre - Paseo",
+    "text": "Regresamos a ese café que tanto nos gustó.",
+    "backgroundColor": "#0e1216",
+    "image": "./assets/img/slide11.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Diciembre - Lo Mejor del Año",
+    "text": "Cerramos el año juntos: gracias por tanto.",
+    "backgroundColor": "#071219",
+    "downloadableReward": {
+      "label": "Descargar recuerdo",
+      "file": "https://co.pinterest.com/pin/774124928835750/"
+    }
   }
 ]
