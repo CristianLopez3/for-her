@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "title": "Hi beloved mine, welcome to <b class='green'>Our Wrapped</b>",
+    "text": "",
+    "backgroundColor": "#0f1720",
+    "classes": "slide-title-big"
+  },
+  {
+    "id": 1,
+    "title": "<b class='green'>January</b> - a New Year for both of us",
+    "text": "It was our first January together, maybe it was a though one, you got a new job, I didn't have one, but <b class='strong-yellow'>we had each other</b>, maybe that's what mattered the most and well, <b>we made it through - thought we didn't get the chance to go out much.</b>",
+    "backgroundColor": "#0f1720",
+    "image": "./assets/img/wrapped.png"
+  },
+  {
+    "id": 2,
+    "title": "February - Other <b class='green'>Quiet</b> Month ",
+    "text": "Well, <b class='strong-yellow'>three months</b> have passed since we started dating. I got the job, you became more comfortable at yours, and this month Jisoo released a song called <b>Earthquick</b>. I remember how excited you were about it. It was a quiet month again, and I didn’t have much money to take you out and believe, remembering that makes me so dad",
+    "backgroundColor": "#131622",
+    "image": "./assets/img/february.png"
+  },
+  {
+    "id": 3,
+    "text": "<span style='text-align: end'><b class='strong-yellow'>March</b> - I told my mom</span>",
+    "title": "<span style='font-weight: 700;'> Can you believe this? You probably don’t remember when I told you about it, but this month <span class='strong-yellow'>I took my mom out and told her about our relationship</span>. I was really scared — it was my first time talking about something like that. <span class='green'>I felt happy and very afraid at the same time</span> </span>",
+    "backgroundColor": "#1a1f22"
+  },
+  {
+    "id": 4,
+    "title": "April - <b class='green'>Full of joys?</b>",
+    "text": "<span style='font-weight: 700;'> Do you remember our duck and this coffee shop? This month we did a lot of things together, however I think <b class='strong-yellow'>the best memory</b> I have from this month is when we went to that coffee shop and you ate that duck </span>",
+    "backgroundColor": "#10221a",
+    "image": "./assets/img/april-duck.png"
+  },
+  {
+    "id": 5,
+    "text": "<span style='text-align: end'><b class='strong-yellow'>May</b> - Why are we always eating?</span>",
+    "title": "<span style='font-weight: 700;'> We went to another restaurant, the Mexican restaurant in the Nuestro Bogota <span class='strong-yellow'>You were enormously beautiful that day (<i>well you're always pretty</i>)</span>. I was really scared — it was my first time talking about something like that. <span class='green'>I felt happy and very afraid at the same time</span> </span>.",
+    "backgroundColor": "#0b1320"
+  },
+  {
+    "id": 56,
+    "title": "",
+    "text": "Do you remember our first experience playing video games? that day was quite funny, <span class='strong-yellow'>specially when we played the virtual reality game </span>, you were so cute trying to hit those targets. I think we should play again sometime.",
+    "backgroundColor": "#1a1f22",
+    "image": "./assets/img/may-claro.png"
+  },
+  {
+    "id": 56,
+    "title": "We even had <span class='green'>our first korean bbq experience,</span> that day the Chef was too beautiful ",
+    "text": "<span style='text-align: end'><b class='strong-yellow'><i>BTW you were the chef</i></b></span>",
+    "backgroundColor": "#1a1f22",
+    "image": "./assets/img/may-korean.png"
+  },
+  {
+    "id": 6,
+    "title": "Junio - Un Regalo",
+    "text": "Ese detalle inesperado que aún conservo.",
+    "backgroundColor": "#14201b",
+    "downloadableReward": {
+      "label": "Descargar medalla",
+      "file": "./assets/rewards/medal1.png"
+    }
+  },
+  {
+    "id": 7,
+    "title": "Julio - Playa",
+    "text": "El atardecer, las risas y la sal en el pelo.",
+    "backgroundColor": "#0f1b20",
+    "image": "./assets/img/slide7.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Agosto - Viaje Corto",
+    "text": "Un par de días que nos bastaron para desconectar.",
+    "backgroundColor": "#1b1420"
+  },
+  {
+    "id": 9,
+    "title": "Septiembre - Cocina",
+    "text": "Intentamos cocinar y terminamos pidiendo pizza.",
+    "backgroundColor": "#0f1820"
+  },
+  {
+    "id": 10,
+    "title": "Octubre - Fiesta",
+    "text": "Nos disfrazamos y fue inolvidable.",
+    "backgroundColor": "#191017",
+    "downloadableReward": {
+      "label": "Descargar premio",
+      "file": "https://co.pinterest.com/pin/774124928835750/"
+    }
+  },
+  {
+    "id": 11,
+    "title": "Noviembre - Paseo",
+    "text": "Regresamos a ese café que tanto nos gustó.",
+    "backgroundColor": "#0e1216",
+    "image": "./assets/img/slide11.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Diciembre - Lo Mejor del Año",
+    "text": "Cerramos el año juntos: gracias por tanto.",
+    "backgroundColor": "#071219",
+    "downloadableReward": {
+      "label": "Descargar recuerdo",
+      "file": "https://co.pinterest.com/pin/774124928835750/"
+    }
+  }
+]
