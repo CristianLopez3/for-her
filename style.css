@@ -327,6 +327,14 @@ body {
   }
 }
 
+.text-white {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 1% 0;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
 /* Large Desktop */
 @media (min-width: 1200px) {
   .home-container {
