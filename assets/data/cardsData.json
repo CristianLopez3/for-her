@@ -28,5 +28,11 @@
         "description": "Hi there, come and take a look at our year together",
         "icon": "./assets/img/icons/wrapped.png",
         "route": "pages/wrapped/index.html"
+    },
+    {
+        "title": "How we see each other",
+        "description": "A reminder of that day, when we make a collage of how we see each other",
+        "icon": "./assets/img/icons/wrapped.png",
+        "route": "pages/we-see-each-other/index.html"
     }
 ]
