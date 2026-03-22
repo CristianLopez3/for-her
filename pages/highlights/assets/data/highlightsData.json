@@ -18,6 +18,11 @@
         "image": "../../pages/aniversary-pinterest/assets/img/image1.jpeg",
         "audio": "../../pages/highlights/assets/data/audios/august.mp3",
         "text": "Do you remember your duck?"
+      },
+      {
+        "image": "./assets/img/dates/attractions-park.jpg",
+        "audio": "../../pages/highlights/assets/data/audios/love.mp3",
+        "text": "My love, this was our first time and my first time on a amusement park, I had so much fun with you, I'll be waiting our next adventure."
       }
     ]
   },
@@ -26,9 +31,9 @@
     "coverImage": "./pages/highlights/assets/img/kali.jpeg",
     "slides": [
       {
-        "image": "./assets/img/kali.jpeg",
-        "audio": "./assets/data/audios/can_i_get_a_kiss.mp3",
-        "text": "Booked for February 18th"
+        "image": "./assets/img/kali.jpg",
+        "audio": "./assets/data/audios/sunchine-and-rain.mp3",
+        "text": "My love, I have no words to describe how much I enjoyed this concert with you, thank you for sharing that moment with me, it was magical."
       }
     ]
   }
