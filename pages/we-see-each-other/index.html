@@ -25,7 +25,38 @@
         </a>
       </div>
 
-        how you see me
+      <header class="page-header">
+        <h1>How We See Each Other</h1>
+        <p>Hi there my love, this is a simple page to remind you that time we played this game together.</p>
+      </header>
+
+      <section class="cards">
+        <article class="card">
+          <h2>How I see you</h2>
+          <button class="card-btn" data-modal-target="#modal-see-you">OPEN</button>
+        </article>
+
+        <article class="card">
+          <h2>How you see me</h2>
+          <button class="card-btn" data-modal-target="#modal-sees-me">OPEN</button>
+        </article>
+      </section>
+    </div>
+
+    <div class="modal" id="modal-see-you" role="dialog" aria-modal="true" aria-label="How I see you">
+      <div class="modal-content">
+        <button class="modal-close" data-modal-close>&times;</button>
+        <h3>How I see you</h3>
+        <img src="./assets/img/how_I_see_her.png" alt="How I see you" />
+      </div>
+    </div>
+
+    <div class="modal" id="modal-sees-me" role="dialog" aria-modal="true" aria-label="How you see me">
+      <div class="modal-content">
+        <button class="modal-close" data-modal-close>&times;</button>
+        <h3>How you see me</h3>
+        <img src="./assets/img/how-she-sees-me.jpg" alt="How you see me" />
+      </div>
     </div>
 
     <script src="./assets/js/app.js"></script>

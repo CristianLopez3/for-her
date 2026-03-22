@@ -1,38 +1,39 @@
 [
-    {
-        "title": "Spotify Cards",
-        "description": "That time when we celebrated our 9-month anniversary",
-        "icon": "./assets/img/icons/ophelia-icon.png",
-        "route": "pages/spotify/index.html"
-    },
-    {
-        "title": "Love Letter",
-        "description": "Go and check, I wrote you a letter",
-        "icon": "./assets/img/icons/pompompurin.png",
-        "route": "pages/cards/index.html"
-    },
-    {
-        "title": "Anniversary Pinterest",
-        "description": "Our special moments together - for our anniversary",
-        "icon": "./assets/img/icons/twice-icon.png",
-        "route": "pages/aniversary-pinterest/index.html"
-    },
-    {
-        "title": "Spotify Notes",
-        "description": "Our one year anniversary and three months of being a couple",
-        "icon": "./assets/img/icons/taylor-2-swift.png",
-        "route": "pages/spotify-notes/index.html"
-    },
-        {
-        "title": "Our Wrapped",
-        "description": "Hi there, come and take a look at our year together",
-        "icon": "./assets/img/icons/wrapped.png",
-        "route": "pages/wrapped/index.html"
-    },
-    {
-        "title": "How we see each other",
-        "description": "A reminder of that day, when we make a collage of how we see each other",
-        "icon": "./assets/img/icons/wrapped.png",
-        "route": "pages/we-see-each-other/index.html"
-    }
+  {
+    "title": "How we see each other",
+    "description": "A reminder of that day, when we make a collage of how we see each other",
+    "icon": "./assets/img/icons/pgf.jpg",
+    "route": "pages/we-see-each-other/index.html"
+  },
+  {
+    "title": "Spotify Notes",
+    "description": "Our one year anniversary and three months of being a couple",
+    "icon": "./assets/img/icons/taylor-2-swift.png",
+    "route": "pages/spotify-notes/index.html"
+  },
+
+  {
+    "title": "Love Letter",
+    "description": "Go and check, I wrote you a letter",
+    "icon": "./assets/img/icons/pompompurin.png",
+    "route": "pages/cards/index.html"
+  },
+  {
+    "title": "Anniversary Pinterest",
+    "description": "Our special moments together - for our anniversary",
+    "icon": "./assets/img/icons/twice-icon.png",
+    "route": "pages/aniversary-pinterest/index.html"
+  },
+  {
+    "title": "Spotify Cards",
+    "description": "That time when we celebrated our 9-month anniversary",
+    "icon": "./assets/img/icons/ophelia-icon.png",
+    "route": "pages/spotify/index.html"
+  },
+  {
+    "title": "Our Wrapped",
+    "description": "Hi there, come and take a look at our year together",
+    "icon": "./assets/img/icons/wrapped.png",
+    "route": "pages/wrapped/index.html"
+  }
 ]

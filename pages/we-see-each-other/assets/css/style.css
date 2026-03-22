@@ -1,0 +1,150 @@
+/* Import Spotify base styles */
+@import url('../../../spotify/assets/css/style.css');
+
+/* Override for notes section */
+body {
+    align-items: start;
+    padding-top: 40px;
+    background: linear-gradient(180deg, #181818 0%, #282828 100%);
+    color: #fff;
+    font-family: 'Poppins', 'Arial', sans-serif;
+    overflow-y: auto;
+    margin: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+.card-btn {
+    background: #1db954;
+    border: none;
+    color: #fefefec4;
+    font-weight: 700;
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    /* box-shadow: 0 4px 8px rgba(29, 185, 84, 0.35); */
+}
+
+.card-btn:hover {
+    background: #1ed760;
+    /* transform: translateY(-2px); */
+    /* box-shadow: 0 6px 12px rgba(29, /185, 84, 0.5); */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 999;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.modal.open {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    transform: translateY(-12px);
+    opacity: 0;
+    transition: transform 0.28s ease, opacity 0.28s ease;
+}
+
+.modal.open .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+    background: #0f0f0f;
+    border-radius: 12px;
+    padding: 18px;
+    width: min(100%, 760px);
+    max-height: 90vh;
+    overflow: auto;
+    text-align: center;
+    position: relative;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 14px;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    max-height: 75vh;
+    object-fit: contain;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: #ffffff33;
+    color: #fff;
+    font-size: 1.4rem;
+    padding: 4px 10px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+@media (max-width: 520px) {
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .card {
+        padding: 14px;
+    }
+
+    .card-btn {
+        width: 100%;
+        padding: 12px;
+    }
+}

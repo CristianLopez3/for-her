@@ -14,11 +14,11 @@ fetch(cardDataUrl)
 
 // Invitation data
 const invitationData = {
-  place: "Depende de a que hora salgas de trabajar, yo salgo a las 5 de trabajar, tu me diras!",
-  date: "Viernes, Octubre 31 - 5:00 PM",
-  dressCode: "Casual, ya compraremos mascaras o nos maquillaremos por ahi!",
+  place: "Dejate sorprender mi amor!",
+  date: "Viernes, 10 de Abril hasta el 12 de Abril",
+  dressCode: "Lleva ropa linda, tendremos una cita en un restaurante lindo y luego, bueno, habran mas cosas.",
   activity:
-    "Fiesta de halloween con conocidos, bailaremos y veremos que pasa!",
+    `Agrega el evento a tu calendario: `,
   whatsappNumber: "3133751604",
 };
 
@@ -60,10 +60,11 @@ function setupInvitationModal() {
     invitationData.dressCode;
   document.getElementById("invitationActivity").textContent =
     invitationData.activity;
+  document.getElementById("invitationActivity").innerHTML +=  `<a href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NGN2ZWJlaTNsMXNoZW5yaWp2dmVrdGsxdXYgY3Jpc3RpYW4uYy5sb3Blei5tQG0&tmsrc=cristian.c.lopez.m%40gmail.com" target="_blank" style="color: #1db954; text-decoration: none; font-weight: 700;"> Google Calendar</a>.`;
 
   // Setup WhatsApp button
   const whatsappBtn = document.getElementById("whatsappBtn");
-  const message = encodeURIComponent(`Buenas! obvio voy mi amorcito lindo precioso rey de mi vida 💕`);
+  const message = encodeURIComponent(`Obvio que voy mi amorcito lindo!!!!!`);
   whatsappBtn.href = `https://wa.me/${invitationData.whatsappNumber}?text=${message}`;
 
   // Open modal when profile icon is clicked

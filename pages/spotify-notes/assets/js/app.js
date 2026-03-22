@@ -49,6 +49,13 @@ const notesData = [
     description:
       "It's quite a odyssey to think about the future - we're young and I'm still learning about life and love, and over all not perfect, however I know something for sure and it's that I love you and I want to be with you, that's kinda stupid to say because you think I don't, but I really do, words aren't enough to express my feelings and to make you feel sure about me and my love for you, but I want to try and give my everything on it even though I can commit mistakes I will resolve them and always give you the corresponding respect and confidence that you deserve, Karen, if you have doubts about us don't doubt and tell me because my objective is to make you happy and if that includes me being part of your life then I will be very happy however if that't not the case I will understand and I will try to support you in the best way I can.",
   },
+  {
+    icon: "./assets/img/love.jpg",
+    title: "I secret I don't want to keep",
+    overview: "...",
+    description:
+      "Karen, I don’t want to keep you waiting for the answer you’ve been looking for. On your birthday, I’m going to ask you to be mine completely, and you might already know what that means. While you might feel we don’t have an official anniversary, I know we do. July 6th, 2025, was the day I asked you to be my girlfriend and you said yes. It was the happiest day of my life, and I want to celebrate it with you every year. I know I’ve made mistakes, and I sometimes feel like this date doesn't mean as much to you as it does to me, but that’s okay. To me, 'making you mine' means asking for a promise of forever. I want to give you the ring we’ve both been waiting to wear. Please be patient with me for just a little longer; I promise to make it a moment you’ll remember for the rest of your life. This is the end of us being 'just kids' and the beginning of us as a couple building a future together. I love you, Karen, and I want to be with you forever."
+  },
 ];
 
 // Render notes dynamically
