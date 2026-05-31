@@ -50,7 +50,7 @@ body {
 }
 
 .card-btn {
-    background: var(--accent-green);
+    background: var(--accent-purple);
     border: none;
     color: rgba(254, 254, 254, 0.77);
     font-weight: 700;
@@ -61,7 +61,7 @@ body {
 }
 
 .card-btn:hover {
-    background: var(--accent-green-light);
+    background: var(--accent-purple-light);
 }
 
 /* Modal */

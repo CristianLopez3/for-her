@@ -9,12 +9,14 @@ Aesthetic target: Spotify-inspired dark UI with polished micro-interactions and 
 - **No frameworks** (React/Vue/Angular/Svelte) and **no external UI libraries** (Bootstrap/Tailwind/etc.).
 - Static, multi-page architecture. No build tooling.
 
-## Spotify Design Tokens (canonical — enforce on all pages)
+## Design Tokens (canonical — enforce on all pages)
 ```css
 --bg-base: #121212
 --text-primary: #FFFFFF
---accent-green: #1DB954
---accent-green-light: #1ED760
+--accent-purple: #8b5cf6
+--accent-purple-light: #a78bfa
+--border-purple: rgba(139, 92, 246, 0.3)
+--shadow-purple: 0 0 20px rgba(139, 92, 246, 0.3)
 --surface: #181818
 --surface-soft: #282828
 --radius: 12px  /* or 16px */
@@ -70,7 +72,7 @@ forHer/
 - CSS classes: `kebab-case` with semantic names (`.card`, `.hero-header`, `.button-primary`).
 
 ## Component Patterns
-- **Buttons:** green accent (`--accent-green`), rounded corners, clear hover states.
+- **Buttons:** purple accent (`--accent-purple`), rounded corners, clear hover states.
 - **Cards:** dark surface (`--surface`), border, `--radius`, consistent spacing.
 - **Modals:** overlay + centered panel + close button + `Esc` key support.
 - **Navigation/back:** subtle icon buttons with text labels.

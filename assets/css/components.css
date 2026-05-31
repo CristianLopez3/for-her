@@ -18,18 +18,18 @@
   padding: 10px 20px;
   border-radius: var(--radius-full);
   text-decoration: none;
-  border: 1px solid var(--border-green);
+  border: 1px solid var(--border-purple);
   transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 .dashboard-btn:hover {
   background: var(--surface-hover);
-  box-shadow: var(--shadow-green);
+  box-shadow: var(--shadow-purple);
   transform: translateY(-1px);
 }
 
 .dashboard-btn i {
-  color: var(--accent-green);
+  color: var(--accent-purple);
   font-size: 1.1rem;
   margin-right: 4px;
   transition: color 0.3s;

@@ -34,7 +34,7 @@ function renderHighlights(highlightsData) {
         
         highlightElement.innerHTML = `
             <div class="highlight-icon-image">
-                <img src="${coverImage}" alt="${highlight.title}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect fill=%22%231db954%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2240%22 fill=%22white%22%3E%E2%98%85%3C/text%3E%3C/svg%3E'">
+                <img src="${coverImage}" alt="${highlight.title}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect fill=%22%238b5cf6%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2240%22 fill=%22white%22%3E%E2%98%85%3C/text%3E%3C/svg%3E'">
             </div>
             <span class="highlight-icon-title">${highlight.title}</span>
         `;

@@ -12,17 +12,17 @@
   --text-muted: rgba(255, 255, 255, 0.6);
 
   /* Accent */
-  --accent-green: #1DB954;
-  --accent-green-light: #1ED760;
+  --accent-purple: #8b5cf6;
+  --accent-purple-light: #a78bfa;
 
   /* Borders */
   --border-subtle: rgba(255, 255, 255, 0.1);
-  --border-green: rgba(29, 185, 84, 0.3);
+  --border-purple: rgba(139, 92, 246, 0.3);
 
   /* Shadows */
   --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.5);
-  --shadow-green: 0 0 20px rgba(29, 185, 84, 0.3);
+  --shadow-purple: 0 0 20px rgba(139, 92, 246, 0.3);
 
   /* Shape */
   --radius: 12px;
