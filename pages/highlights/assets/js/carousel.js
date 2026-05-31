@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             slideElement.dataset.index = index;
             
             slideElement.innerHTML = `
-                <img src="${slide.image}" alt="Slide ${index + 1}" class="story-slide-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect fill=%22%23191414%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%231db954%22%3EImage not found%3C/text%3E%3C/svg%3E'">
+                <img src="${slide.image}" alt="Slide ${index + 1}" class="story-slide-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect fill=%22%23191414%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%238b5cf6%22%3EImage not found%3C/text%3E%3C/svg%3E'">
                 <div class="story-slide-text">${slide.text}</div>
             `;
             
@@ -245,9 +245,9 @@ document.addEventListener('DOMContentLoaded', async function () {
     function showError(message) {
         storySlides.innerHTML = `
             <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: white; text-align: center; padding: 20px;">
-                <i class="fas fa-exclamation-circle" style="font-size: 3rem; color: #1db954; margin-bottom: 20px;"></i>
+                <i class="fas fa-exclamation-circle" style="font-size: 3rem; color: #8b5cf6; margin-bottom: 20px;"></i>
                 <p style="font-size: 1.2rem; margin-bottom: 10px;">${message}</p>
-                <a href="./index.html" style="color: #1db954; text-decoration: underline; margin-top: 20px;">Return to Highlights</a>
+                <a href="./index.html" style="color: #8b5cf6; text-decoration: underline; margin-top: 20px;">Return to Highlights</a>
             </div>
         `;
     }

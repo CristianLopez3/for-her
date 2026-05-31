@@ -1,8 +1,4 @@
-/* Import base Spotify styles */
-@import url("./pages/spotify/assets/css/style.css");
-@import url("./assets/css/style.css");
-
-/* Override body styles for home page */
+/* ─── Body & Container ─────────────────────────────────────────────────── */
 body {
   padding: 20px;
   min-height: 100vh;
@@ -10,339 +6,300 @@ body {
   overflow-y: auto;
 }
 
-/* Home container */
 .home-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 520px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
 }
 
-/* Profile Header */
-.profile-header {
+/* ─── Section Scaffolding ──────────────────────────────────────────────── */
+.home-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ─── Hero Header ──────────────────────────────────────────────────────── */
+.hero-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.hero-profile {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 4px;
-  padding: 10px;
-  position: relative;
-  /* background: linear-gradient(
-    135deg,
-    rgba(25, 20, 20, 0.6) 0%,
-    rgba(45, 27, 27, 0.6) 100%
-  ); */
-  /* border-radius: 15px; */
-  /* backdrop-filter: blur(10px); */
-  /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 14px;
 }
 
-/* Contenedor circular */
 .profile-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 70px; /* tamaño del círculo */
-  height:70px;
-  border-radius: 50%; /* círculo */
-  background-color: #1db954; /* verde Spotify */
-  overflow: hidden; /* evita que la imagen se salga */
-  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
   cursor: pointer;
-  transition: transform 0.8s ease, box-shadow 0.2s ease;
-  /* animation: borderPulse 2s infinite; */
-  box-shadow: 0 0 0 0 #1db954;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 0 2px var(--border-purple);
 }
-
-/** 
-* Uncomment in case of any date along with the animation property
-*/
-
-/* @keyframes borderPulse {
-  0% {
-    box-shadow: 0 0 0 0 #1db954, 0 0 0 0 #1db954;
-    border: 1px solid #1db954;
-  }
-  50% {
-    box-shadow: 0 0 0px 0px #1db954, 0 0 1px 1px #1db954;
-    border: 1px solid #1ed760;
-  }
-  100% {
-    box-shadow: 0 0 0 0 #1db954, 0 0 0 0 #1db954;
-    border: 1px solid #1db954;
-  }
-} */
 
 .profile-icon:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(29, 185, 84, 0.4);
+  transform: scale(1.06);
+  box-shadow: 0 0 0 2px var(--accent-purple), var(--shadow-purple);
 }
 
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.8;
-  }
-}
-
-/* Imagen dentro del círculo */
 .profile-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* recorta para que encaje bien */
+  object-fit: cover;
   object-position: center;
 }
 
-/* Nombre al lado */
-.profile-name {
-  margin-left: 10px;
-  font-weight: bold;
-  color: #fff;
+.hero-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
-.profile-name {
-  font-size: 1rem;
+.hero-name {
+  font-size: 1.1rem;
   font-weight: 700;
-  color: white;
-  font-family: "Poppins", sans-serif;
+  color: var(--text-primary);
   margin: 0;
 }
 
-/* Cards Grid */
-.cards-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px;
-  padding: 0;
+.hero-days {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin: 0;
 }
 
-/* Individual Card */
-.card {
-  /* background: linear-gradient(135deg, #191414 0%, #2d1b1b 100%); */
-  /* border-radius: 40px; */
-  padding: 4px;
+.hero-days span {
+  color: var(--accent-purple);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* Countdown badge */
+.countdown-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: rgba(139, 92, 246,0.08);
+  border: 1px solid var(--border-purple);
+  border-radius: var(--radius);
+  color: var(--accent-purple);
+  font-size: 0.82rem;
+  font-weight: 500;
+  align-self: flex-start;
+  transition: background 0.2s ease;
+}
+
+.countdown-badge:hover {
+  background: rgba(139, 92, 246,0.14);
+}
+
+.countdown-badge i {
+  font-size: 0.85rem;
+}
+
+.countdown-badge strong {
+  font-weight: 700;
+}
+
+/* ─── Navigation Grid ──────────────────────────────────────────────────── */
+.nav-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.nav-item {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 0;
+  padding: 0;
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
   text-decoration: none;
-  color: white;
-  transition: all 0.3s ease;
-  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 20px rgba(29, 185, 84, 0.1); */
-  cursor: pointer;
-  position: relative;
+  color: var(--text-primary);
   overflow: hidden;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  min-height: 48px;
 }
 
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    135deg,
-    rgba(29, 185, 84, 0.1) 0%,
-    transparent 50%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 30px rgba(29, 185, 84, 0.3);
-  border-color: rgba(29, 185, 84, 0.3);
-  background: linear-gradient(135deg, #191414 0%, #2d1b1b 100%);
-}
-
-.card:hover::before {
-  opacity: 1;
-}
-
-.card:active {
+.nav-item:hover {
+  background: var(--surface-soft);
+  border-color: var(--border-purple);
   transform: translateY(-2px);
 }
 
-/* Card Icon */
-.card-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-  background: linear-gradient(
-    135deg,
-    rgba(29, 185, 84, 0.2) 0%,
-    rgba(29, 185, 84, 0.1) 100%
-  );
+.nav-item:active {
+  transform: translateY(0);
+}
+
+.nav-item-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 0;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: rgba(139, 92, 246,0.12);
+}
+
+.nav-item-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nav-item-title {
+  font-size: 0.6rem;
+  font-weight: 700;
+  flex: 1;
+  line-height: 1.3;
+  padding: 0 12px;
+}
+
+/* ─── Note Card ────────────────────────────────────────────────────────── */
+.note-card {
+  background: linear-gradient(145deg, #1e0e50 0%, #2d1b69 60%, #1a0a40 100%);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.note-animation-zone {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
+  padding: 32px 20px 20px;
 }
 
-.card-icon img {
+.note-canvas {
+  display: block;
+}
+
+.note-text-zone {
+  padding: 4px 20px 24px;
+}
+
+.note-message {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.45;
+  margin: 0;
+  transition: opacity 0.4s ease;
+}
+
+.note-message.fading {
+  opacity: 0;
+}
+
+
+/* ─── Featured Moment Card ─────────────────────────────────────────────── */
+.moment-card {
+  display: block;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.moment-card:hover {
+  transform: scale(1.015);
+  box-shadow: var(--shadow-md), var(--shadow-purple);
+}
+
+.moment-image {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
-/* Card Content */
-.card-content {
-  flex: 1;
-  position: relative;
-  z-index: 1;
+.moment-card:hover .moment-image {
+  transform: scale(1.04);
 }
 
-.card-title {
+.moment-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(0, 0, 0, 0.18) 55%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.moment-title {
   font-size: 1rem;
   font-weight: 700;
-  margin: 0 0 1% 0;
-  color: white;
-  font-family: "Poppins", sans-serif;
+  color: var(--text-primary);
+  margin: 0 0 4px;
 }
 
-.card-description {
-  font-size: 0.7rem;
-  font-weight: 400;
+.moment-caption {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.72);
   margin: 0;
-  color: #b3b3b3;
-  font-family: "Poppins", sans-serif;
-  line-height: 1.4;
 }
 
-/* Responsive Design - Mobile First */
+/* ─── Reduced Motion ───────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .nav-item,
+  .moment-card,
+  .moment-image,
+  .profile-icon {
+    transition: none;
+  }
+}
 
-/* Small phones */
+/* ─── Responsive ───────────────────────────────────────────────────────── */
 @media (max-width: 360px) {
-  .profile-header {
-    padding: 10px;
-    gap: 12px;
-  }
-
-  .profile-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 0.8rem;
-  }
-
-  .profile-name {
-    font-size: 1rem;
-  }
-
-  .card {
-    padding: 1px;
-    gap: 15px;
-  }
-
-  .card-icon {
-    width: 60px;
-    height: 60px;
-  }
-
-  .card-icon img {
-    width: 35px;
-    height: 35px;
-  }
-
-  .card-title {
-    font-size: 0.8rem;
-  }
-
-  .card-description {
-    font-size: 0.55rem;
-  }
+  .home-container { padding: 12px; }
+  .hero-name      { font-size: 1rem; }
+  .nav-item-title { font-size: 0.6rem; }
 }
 
-/* Tablets and up */
 @media (min-width: 600px) {
-  .cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-  }
-
-  .profile-header {
-    margin-bottom: 50px;
-  }
+  .home-container { padding: 24px; max-width: 560px; }
 }
 
-/* Desktop */
-@media (min-width: 900px) {
-  .cards-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-  }
-
-  .home-container {
-    padding: 40px 20px;
-  }
-
-  .profile-header {
-    padding: 15px;
-    margin-bottom: 60px;
-  }
-
-  .profile-icon {
-    width: 70px;
-    height: 70px;
-    font-size: 2.2rem;
-  }
-
-  .profile-name {
-    font-size: 1rem;
-  }
-
-  .card {
-    flex-direction: column;
-    text-align: center;
-    padding: 30px;
-  }
-
-  .card-icon {
-    width: 90px;
-    height: 90px;
-  }
-
-  .card-icon img {
-    width: 100%;
-    height: 100%;
-    overflow: contain;
-  }
-
-  .card-title {
-    font-size: 1.4rem;
-  }
-
-  .card-description {
-    font-size: 1rem;
-  }
-}
-
-.text-white {
-  font-size: 1rem;
-  font-weight: 700;
-  margin: 0 0 1% 0;
-  color: white;
-  font-family: "Poppins", sans-serif;
-}
-
-/* Large Desktop */
-@media (min-width: 1200px) {
-  .home-container {
-    padding: 60px 20px;
-  }
-}
-
-/* Invitation Modal Styles */
+/* ─── Invitation Modal ─────────────────────────────────────────────────── */
 .invitation-modal {
   display: none;
   position: fixed;
@@ -371,42 +328,17 @@ body {
   animation: fadeIn 0.3s ease;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 .modal-card {
   position: relative;
-  /* background: linear-gradient(135deg, #191414 0%, #2d1b1b 100%); */
-  background: linear-gradient(
-    135deg,
-    rgba(25, 20, 20, 0.539) 0%,
-    rgba(45, 27, 27, 0.613) 100%
-  );
-  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(25, 20, 20, 0.94) 0%, rgba(45, 27, 27, 0.96) 100%);
+  border-radius: var(--radius-lg);
   max-width: 500px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(29, 185, 84, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), var(--shadow-purple);
   animation: slideUp 0.4s ease;
   z-index: 3001;
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
 
 .modal-close {
@@ -418,7 +350,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  color: white;
+  color: var(--text-primary);
   font-size: 1.2rem;
   cursor: pointer;
   display: flex;
@@ -436,32 +368,21 @@ body {
 .modal-header {
   text-align: center;
   padding: 40px 30px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .modal-icon {
   font-size: 3rem;
-  color: #1db954;
+  color: var(--accent-purple);
   margin-bottom: 15px;
-  animation: bounce 1s ease infinite;
-}
-
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  animation: pulse 1s ease infinite;
 }
 
 .modal-title {
   font-size: 1.8rem;
   font-weight: 700;
-  color: white;
+  color: var(--text-primary);
   margin: 0;
-  font-family: "Poppins", sans-serif;
 }
 
 .modal-body {
@@ -475,7 +396,7 @@ body {
   margin-bottom: 25px;
   padding: 15px;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+  border-radius: var(--radius);
   transition: all 0.3s ease;
 }
 
@@ -488,11 +409,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    rgba(29, 185, 84, 0.3),
-    rgba(29, 185, 84, 0.1)
-  );
+  background: linear-gradient(135deg, rgba(139, 92, 246,0.3), rgba(139, 92, 246,0.1));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -501,7 +418,7 @@ body {
 
 .detail-icon i {
   font-size: 1.2rem;
-  color: #1db954;
+  color: var(--accent-purple);
 }
 
 .detail-content {
@@ -511,8 +428,8 @@ body {
 .detail-label {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #b3b3b3;
-  margin: 0 0 5px 0;
+  color: var(--text-secondary);
+  margin: 0 0 5px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -520,7 +437,7 @@ body {
 .detail-value {
   font-size: 1.1rem;
   font-weight: 500;
-  color: white;
+  color: var(--text-primary);
   margin: 0;
   line-height: 1.4;
 }
@@ -535,72 +452,35 @@ body {
   align-items: center;
   gap: 10px;
   padding: 15px 30px;
-  background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-purple-light) 100%);
+  color: var(--text-primary);
   text-decoration: none;
-  border-radius: 30px;
+  border-radius: var(--radius-full);
   font-weight: 600;
   font-size: 1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
+  box-shadow: var(--shadow-purple);
 }
 
 .whatsapp-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(29, 185, 84, 0.4);
-  background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
+  box-shadow: 0 6px 20px rgba(139, 92, 246,0.4);
 }
 
 .whatsapp-btn i {
   font-size: 1.3rem;
 }
 
-/* Mobile responsiveness for modal */
 @media (max-width: 600px) {
-  .modal-card {
-    max-width: 95vw;
-    border-radius: 15px;
-  }
-
-  .modal-header {
-    padding: 30px 20px 15px;
-  }
-
-  .modal-icon {
-    font-size: 2.5rem;
-  }
-
-  .modal-title {
-    font-size: 1.5rem;
-  }
-
-  .modal-body {
-    padding: 20px;
-  }
-
-  .invitation-detail {
-    padding: 12px;
-  }
-
-  .detail-icon {
-    width: 35px;
-    height: 35px;
-  }
-
-  .detail-icon i {
-    font-size: 1rem;
-  }
-
-  .detail-label {
-    font-size: 0.75rem;
-  }
-
-  .detail-value {
-    font-size: 1rem;
-  }
-
-  .whatsapp-btn {
-    width: 100%;
-    justify-content: center;
-  }
+  .modal-card       { max-width: 95vw; border-radius: 15px; }
+  .modal-header     { padding: 30px 20px 15px; }
+  .modal-icon       { font-size: 2.5rem; }
+  .modal-title      { font-size: 1.5rem; }
+  .modal-body       { padding: 20px; }
+  .invitation-detail { padding: 12px; }
+  .detail-icon      { width: 35px; height: 35px; }
+  .detail-icon i    { font-size: 1rem; }
+  .detail-label     { font-size: 0.75rem; }
+  .detail-value     { font-size: 1rem; }
+  .whatsapp-btn     { width: 100%; justify-content: center; }
 }

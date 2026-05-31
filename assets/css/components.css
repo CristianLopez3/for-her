@@ -1,0 +1,68 @@
+/* Back / Dashboard navigation button */
+.back-dashboard {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.dashboard-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface-soft);
+  color: var(--text-primary);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  border: 1px solid var(--border-purple);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.dashboard-btn:hover {
+  background: var(--surface-hover);
+  box-shadow: var(--shadow-purple);
+  transform: translateY(-1px);
+}
+
+.dashboard-btn i {
+  color: var(--accent-purple);
+  font-size: 1.1rem;
+  margin-right: 4px;
+  transition: color 0.3s;
+}
+
+/* Responsive auto-fit grid */
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Font weight utilities — Poppins */
+.poppins-thin          { font-family: "Poppins", sans-serif; font-weight: 100; font-style: normal; }
+.poppins-extralight    { font-family: "Poppins", sans-serif; font-weight: 200; font-style: normal; }
+.poppins-light         { font-family: "Poppins", sans-serif; font-weight: 300; font-style: normal; }
+.poppins-regular       { font-family: "Poppins", sans-serif; font-weight: 400; font-style: normal; }
+.poppins-medium        { font-family: "Poppins", sans-serif; font-weight: 500; font-style: normal; }
+.poppins-semibold      { font-family: "Poppins", sans-serif; font-weight: 600; font-style: normal; }
+.poppins-bold          { font-family: "Poppins", sans-serif; font-weight: 700; font-style: normal; }
+.poppins-extrabold     { font-family: "Poppins", sans-serif; font-weight: 800; font-style: normal; }
+.poppins-black         { font-family: "Poppins", sans-serif; font-weight: 900; font-style: normal; }
+
+.poppins-thin-italic       { font-family: "Poppins", sans-serif; font-weight: 100; font-style: italic; }
+.poppins-extralight-italic { font-family: "Poppins", sans-serif; font-weight: 200; font-style: italic; }
+.poppins-light-italic      { font-family: "Poppins", sans-serif; font-weight: 300; font-style: italic; }
+.poppins-regular-italic    { font-family: "Poppins", sans-serif; font-weight: 400; font-style: italic; }
+.poppins-medium-italic     { font-family: "Poppins", sans-serif; font-weight: 500; font-style: italic; }
+.poppins-semibold-italic   { font-family: "Poppins", sans-serif; font-weight: 600; font-style: italic; }
+.poppins-bold-italic       { font-family: "Poppins", sans-serif; font-weight: 700; font-style: italic; }
+.poppins-extrabold-italic  { font-family: "Poppins", sans-serif; font-weight: 800; font-style: italic; }
+.poppins-black-italic      { font-family: "Poppins", sans-serif; font-weight: 900; font-style: italic; }
+
+/* Font weight utilities — Tangerine */
+.tangerine-regular { font-family: "Tangerine", cursive; font-weight: 400; font-style: normal; }
+.tangerine-bold    { font-family: "Tangerine", cursive; font-weight: 700; font-style: normal; }

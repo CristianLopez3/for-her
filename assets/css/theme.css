@@ -1,0 +1,31 @@
+:root {
+  /* Core palette */
+  --bg-base: #121212;
+  --bg-elevated: #191414;
+  --surface: #181818;
+  --surface-soft: #282828;
+  --surface-hover: #333333;
+
+  /* Text */
+  --text-primary: #FFFFFF;
+  --text-secondary: #B3B3B3;
+  --text-muted: rgba(255, 255, 255, 0.6);
+
+  /* Accent */
+  --accent-purple: #8b5cf6;
+  --accent-purple-light: #a78bfa;
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-purple: rgba(139, 92, 246, 0.3);
+
+  /* Shadows */
+  --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.5);
+  --shadow-purple: 0 0 20px rgba(139, 92, 246, 0.3);
+
+  /* Shape */
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-full: 50px;
+}

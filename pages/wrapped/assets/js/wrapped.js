@@ -20,7 +20,7 @@ function renderSlides(slides){
     const rewardHtml = s.downloadableReward ? `
       <div class="reward-wrap">
         <a class="reward-btn" href="${s.downloadableReward.file}" download aria-label="${s.downloadableReward.label}">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M12 3v12" stroke="${'#1db954'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 11l4 4 4-4" stroke="${'#1db954'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M12 3v12" stroke="${'#8b5cf6'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 11l4 4 4-4" stroke="${'#8b5cf6'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           ${s.downloadableReward.label}
         </a>
       </div>` : '';

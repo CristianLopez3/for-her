@@ -143,13 +143,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // Toggle shuffle
     function toggleShuffle() {
         isShuffled = !isShuffled;
-        shuffleBtn.style.color = isShuffled ? '#1db954' : '#b3b3b3';
+        shuffleBtn.style.color = isShuffled ? '#8b5cf6' : '#b3b3b3';
     }
 
     // Toggle repeat
     function toggleRepeat() {
         repeatMode = (repeatMode + 1) % 3;
-        const colors = ['#b3b3b3', '#1db954', '#1db954'];
+        const colors = ['#b3b3b3', '#8b5cf6', '#8b5cf6'];
         const icons = ['fas fa-redo', 'fas fa-redo', 'fas fa-redo-alt'];
 
         repeatBtn.style.color = colors[repeatMode];

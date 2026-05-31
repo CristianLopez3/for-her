@@ -1,15 +1,8 @@
-/* Import Spotify base styles */
-@import url('../../../spotify/assets/css/style.css');
-
-/* Override for notes section */
 body {
     align-items: start;
     padding-top: 40px;
-    background: linear-gradient(180deg, #181818 0%, #282828 100%);
-    color: #fff;
-    font-family: 'Poppins', 'Arial', sans-serif;
+    background: linear-gradient(180deg, var(--surface) 0%, var(--surface-soft) 100%);
     overflow-y: auto;
-    margin: 0;
 }
 
 .container {
@@ -29,6 +22,12 @@ body {
     margin-bottom: 8px;
 }
 
+.page-header p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -38,10 +37,10 @@ body {
 
 .card {
     background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    border: 1px solid var(--border-subtle);
     border-radius: 14px;
     padding: 18px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-sm);
     text-align: center;
 }
 
@@ -51,23 +50,21 @@ body {
 }
 
 .card-btn {
-    background: #1db954;
+    background: var(--accent-purple);
     border: none;
-    color: #fefefec4;
+    color: rgba(254, 254, 254, 0.77);
     font-weight: 700;
     padding: 10px 16px;
     border-radius: 10px;
     cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-    /* box-shadow: 0 4px 8px rgba(29, 185, 84, 0.35); */
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .card-btn:hover {
-    background: #1ed760;
-    /* transform: translateY(-2px); */
-    /* box-shadow: 0 6px 12px rgba(29, /185, 84, 0.5); */
+    background: var(--accent-purple-light);
 }
 
+/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -89,6 +86,14 @@ body {
 }
 
 .modal-content {
+    background: #0f0f0f;
+    border-radius: var(--radius);
+    padding: 18px;
+    width: min(100%, 760px);
+    max-height: 90vh;
+    overflow: auto;
+    text-align: center;
+    position: relative;
     transform: translateY(-12px);
     opacity: 0;
     transition: transform 0.28s ease, opacity 0.28s ease;
@@ -97,15 +102,6 @@ body {
 .modal.open .modal-content {
     transform: translateY(0);
     opacity: 1;
-}
-    background: #0f0f0f;
-    border-radius: 12px;
-    padding: 18px;
-    width: min(100%, 760px);
-    max-height: 90vh;
-    overflow: auto;
-    text-align: center;
-    position: relative;
 }
 
 .modal-content h3 {
@@ -126,25 +122,21 @@ body {
     top: 10px;
     right: 10px;
     border: none;
-    background: #ffffff33;
-    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
     font-size: 1.4rem;
     padding: 4px 10px;
     cursor: pointer;
     border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.35);
 }
 
 @media (max-width: 520px) {
-    .page-header h1 {
-        font-size: 1.5rem;
-    }
-
-    .card {
-        padding: 14px;
-    }
-
-    .card-btn {
-        width: 100%;
-        padding: 12px;
-    }
+    .page-header h1 { font-size: 1.5rem; }
+    .card         { padding: 14px; }
+    .card-btn     { width: 100%; padding: 12px; }
 }
