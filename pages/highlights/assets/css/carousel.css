@@ -1,13 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: "Poppins", sans-serif;
     background: #000;
     overflow: hidden;
     height: 100vh;
@@ -51,20 +42,16 @@ body {
 }
 
 .story-progress-bar.active .story-progress-fill {
-    animation: progress 30s linear forwards;
+    animation: storyProgress 30s linear forwards;
 }
 
 .story-progress-bar.completed .story-progress-fill {
     width: 100%;
 }
 
-@keyframes progress {
-    from {
-        width: 0%;
-    }
-    to {
-        width: 100%;
-    }
+@keyframes storyProgress {
+    from { width: 0%; }
+    to   { width: 100%; }
 }
 
 /* Back button */
@@ -75,9 +62,8 @@ body {
     z-index: 100;
     background: rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    width: 40px;
-    height: 40px;
+    color: var(--text-primary);
+    width: 40px; height: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -90,7 +76,7 @@ body {
 
 .story-back-btn:hover {
     background: rgba(29, 185, 84, 0.8);
-    border-color: #1db954;
+    border-color: var(--accent-green);
     transform: scale(1.1);
 }
 
@@ -134,7 +120,7 @@ body {
     right: 20px;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%);
     padding: 40px 20px 20px;
-    color: white;
+    color: var(--text-primary);
     font-size: 1.1rem;
     font-weight: 400;
     text-align: center;
@@ -147,21 +133,15 @@ body {
 .story-nav-left,
 .story-nav-right {
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 0; bottom: 0;
     width: 30%;
     z-index: 50;
     cursor: pointer;
     user-select: none;
 }
 
-.story-nav-left {
-    left: 0;
-}
-
-.story-nav-right {
-    right: 0;
-}
+.story-nav-left  { left: 0; }
+.story-nav-right { right: 0; }
 
 /* Audio indicator */
 .audio-indicator {
@@ -176,76 +156,35 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: white;
+    color: var(--text-primary);
     font-size: 0.9rem;
     font-weight: 500;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow-sm);
 }
 
 .audio-indicator i {
-    animation: pulse 1s ease-in-out infinite;
+    animation: audioPulse 1s ease-in-out infinite;
 }
 
-@keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.5;
-    }
+@keyframes audioPulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.5; }
 }
 
-/* Mobile optimizations */
+/* Responsive */
 @media (max-width: 768px) {
-    .story-progress-bars {
-        top: 15px;
-        left: 8px;
-        right: 8px;
-        gap: 3px;
-    }
-    
-    .story-back-btn {
-        top: 50px;
-        left: 15px;
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
-    }
-    
-    .story-slide-text {
-        bottom: 60px;
-        left: 15px;
-        right: 15px;
-        font-size: 1rem;
-        padding: 30px 15px 15px;
-    }
+    .story-progress-bars { top: 15px; left: 8px; right: 8px; gap: 3px; }
+    .story-back-btn { top: 50px; left: 15px; width: 36px; height: 36px; font-size: 1rem; }
+    .story-slide-text { bottom: 60px; left: 15px; right: 15px; font-size: 1rem; padding: 30px 15px 15px; }
 }
 
 @media (max-width: 480px) {
-    .story-slide-text {
-        font-size: 0.9rem;
-        bottom: 50px;
-    }
-    
-    .audio-indicator {
-        bottom: 15px;
-        font-size: 0.85rem;
-        padding: 6px 12px;
-    }
+    .story-slide-text { font-size: 0.9rem; bottom: 50px; }
+    .audio-indicator  { bottom: 15px; font-size: 0.85rem; padding: 6px 12px; }
 }
 
-/* Landscape mode */
 @media (orientation: landscape) and (max-height: 600px) {
-    .story-progress-bars {
-        top: 10px;
-    }
-    
-    .story-back-btn {
-        top: 40px;
-    }
-    
-    .story-slide-text {
-        bottom: 40px;
-        font-size: 0.9rem;
-    }
+    .story-progress-bars { top: 10px; }
+    .story-back-btn { top: 40px; }
+    .story-slide-text { bottom: 40px; font-size: 0.9rem; }
 }

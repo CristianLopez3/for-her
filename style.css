@@ -1,8 +1,80 @@
-/* Import base Spotify styles */
-@import url("./pages/spotify/assets/css/style.css");
-@import url("./assets/css/style.css");
+/* Highlights row */
+.highlights-row-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
 
-/* Override body styles for home page */
+.highlights-row {
+  display: flex;
+  gap: 1px;
+  padding: 10px 5px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 10px;
+}
+
+.highlights-row::-webkit-scrollbar        { height: 6px; }
+.highlights-row::-webkit-scrollbar-track  { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
+.highlights-row::-webkit-scrollbar-thumb  { background: rgba(29, 185, 84, 0.5); border-radius: 10px; }
+.highlights-row::-webkit-scrollbar-thumb:hover { background: rgba(29, 185, 84, 0.8); }
+
+.highlight-icon {
+  flex-shrink: 0;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.highlight-icon:hover { transform: translateY(-5px); }
+
+.highlight-icon-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--bg-elevated) 0%, #2d1b1b 100%);
+  box-shadow: var(--shadow-sm), var(--shadow-green);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.highlight-icon:hover .highlight-icon-image {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 30px rgba(29, 185, 84, 0.5);
+}
+
+.highlight-icon-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.highlight-icon-title {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  font-weight: 300;
+  text-align: center;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .highlight-icon       { width: 80px; }
+  .highlight-icon-image { width: 50px; height: 50px; }
+  .highlight-icon-title { font-size: 0.75rem; max-width: 80px; }
+}
+
+/* Home page layout overrides */
 body {
   padding: 20px;
   min-height: 100vh;
@@ -26,91 +98,41 @@ body {
   margin-bottom: 4px;
   padding: 10px;
   position: relative;
-  /* background: linear-gradient(
-    135deg,
-    rgba(25, 20, 20, 0.6) 0%,
-    rgba(45, 27, 27, 0.6) 100%
-  ); */
-  /* border-radius: 15px; */
-  /* backdrop-filter: blur(10px); */
-  /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
-/* Contenedor circular */
 .profile-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 70px; /* tamaño del círculo */
-  height:70px;
-  border-radius: 50%; /* círculo */
-  background-color: #1db954; /* verde Spotify */
-  overflow: hidden; /* evita que la imagen se salga */
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: var(--accent-green);
+  overflow: hidden;
   position: relative;
   cursor: pointer;
   transition: transform 0.8s ease, box-shadow 0.2s ease;
-  /* animation: borderPulse 2s infinite; */
-  box-shadow: 0 0 0 0 #1db954;
+  box-shadow: 0 0 0 0 var(--accent-green);
 }
-
-/** 
-* Uncomment in case of any date along with the animation property
-*/
-
-/* @keyframes borderPulse {
-  0% {
-    box-shadow: 0 0 0 0 #1db954, 0 0 0 0 #1db954;
-    border: 1px solid #1db954;
-  }
-  50% {
-    box-shadow: 0 0 0px 0px #1db954, 0 0 1px 1px #1db954;
-    border: 1px solid #1ed760;
-  }
-  100% {
-    box-shadow: 0 0 0 0 #1db954, 0 0 0 0 #1db954;
-    border: 1px solid #1db954;
-  }
-} */
 
 .profile-icon:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(29, 185, 84, 0.4);
+  box-shadow: var(--shadow-green);
 }
 
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.8;
-  }
-}
-
-/* Imagen dentro del círculo */
 .profile-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* recorta para que encaje bien */
+  object-fit: cover;
   object-position: center;
 }
 
-/* Nombre al lado */
 .profile-name {
   margin-left: 10px;
-  font-weight: bold;
-  color: #fff;
-}
-
-.profile-name {
   font-size: 1rem;
   font-weight: 700;
-  color: white;
-  font-family: "Poppins", sans-serif;
+  color: var(--text-primary);
   margin: 0;
 }
 
@@ -122,18 +144,14 @@ body {
   padding: 0;
 }
 
-/* Individual Card */
 .card {
-  /* background: linear-gradient(135deg, #191414 0%, #2d1b1b 100%); */
-  /* border-radius: 40px; */
   padding: 4px;
   display: flex;
   align-items: center;
   gap: 20px;
   text-decoration: none;
-  color: white;
+  color: var(--text-primary);
   transition: all 0.3s ease;
-  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 20px rgba(29, 185, 84, 0.1); */
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -146,20 +164,16 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    135deg,
-    rgba(29, 185, 84, 0.1) 0%,
-    transparent 50%
-  );
+  background: linear-gradient(135deg, rgba(29, 185, 84, 0.1) 0%, transparent 50%);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 30px rgba(29, 185, 84, 0.3);
-  border-color: rgba(29, 185, 84, 0.3);
-  background: linear-gradient(135deg, #191414 0%, #2d1b1b 100%);
+  box-shadow: var(--shadow-md), var(--shadow-green);
+  border-color: var(--border-green);
+  background: linear-gradient(135deg, var(--bg-elevated) 0%, #2d1b1b 100%);
 }
 
 .card:hover::before {
@@ -170,21 +184,16 @@ body {
   transform: translateY(-2px);
 }
 
-/* Card Icon */
 .card-icon {
   width: 60px;
   height: 60px;
   border-radius: 100%;
-  background: linear-gradient(
-    135deg,
-    rgba(29, 185, 84, 0.2) 0%,
-    rgba(29, 185, 84, 0.1) 100%
-  );
+  background: linear-gradient(135deg, rgba(29, 185, 84, 0.2) 0%, rgba(29, 185, 84, 0.1) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-sm);
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -196,7 +205,6 @@ body {
   object-fit: contain;
 }
 
-/* Card Content */
 .card-content {
   flex: 1;
   position: relative;
@@ -207,142 +215,58 @@ body {
   font-size: 1rem;
   font-weight: 700;
   margin: 0 0 1% 0;
-  color: white;
-  font-family: "Poppins", sans-serif;
+  color: var(--text-primary);
 }
 
 .card-description {
   font-size: 0.7rem;
   font-weight: 400;
   margin: 0;
-  color: #b3b3b3;
-  font-family: "Poppins", sans-serif;
+  color: var(--text-secondary);
   line-height: 1.4;
-}
-
-/* Responsive Design - Mobile First */
-
-/* Small phones */
-@media (max-width: 360px) {
-  .profile-header {
-    padding: 10px;
-    gap: 12px;
-  }
-
-  .profile-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 0.8rem;
-  }
-
-  .profile-name {
-    font-size: 1rem;
-  }
-
-  .card {
-    padding: 1px;
-    gap: 15px;
-  }
-
-  .card-icon {
-    width: 60px;
-    height: 60px;
-  }
-
-  .card-icon img {
-    width: 35px;
-    height: 35px;
-  }
-
-  .card-title {
-    font-size: 0.8rem;
-  }
-
-  .card-description {
-    font-size: 0.55rem;
-  }
-}
-
-/* Tablets and up */
-@media (min-width: 600px) {
-  .cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-  }
-
-  .profile-header {
-    margin-bottom: 50px;
-  }
-}
-
-/* Desktop */
-@media (min-width: 900px) {
-  .cards-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-  }
-
-  .home-container {
-    padding: 40px 20px;
-  }
-
-  .profile-header {
-    padding: 15px;
-    margin-bottom: 60px;
-  }
-
-  .profile-icon {
-    width: 70px;
-    height: 70px;
-    font-size: 2.2rem;
-  }
-
-  .profile-name {
-    font-size: 1rem;
-  }
-
-  .card {
-    flex-direction: column;
-    text-align: center;
-    padding: 30px;
-  }
-
-  .card-icon {
-    width: 90px;
-    height: 90px;
-  }
-
-  .card-icon img {
-    width: 100%;
-    height: 100%;
-    overflow: contain;
-  }
-
-  .card-title {
-    font-size: 1.4rem;
-  }
-
-  .card-description {
-    font-size: 1rem;
-  }
 }
 
 .text-white {
   font-size: 1rem;
   font-weight: 700;
   margin: 0 0 1% 0;
-  color: white;
-  font-family: "Poppins", sans-serif;
+  color: var(--text-primary);
 }
 
-/* Large Desktop */
+/* Responsive */
+@media (max-width: 360px) {
+  .profile-header { padding: 10px; gap: 12px; }
+  .profile-icon   { width: 50px; height: 50px; font-size: 0.8rem; }
+  .profile-name   { font-size: 1rem; }
+  .card           { padding: 1px; gap: 15px; }
+  .card-icon      { width: 60px; height: 60px; }
+  .card-icon img  { width: 35px; height: 35px; }
+  .card-title     { font-size: 0.8rem; }
+  .card-description { font-size: 0.55rem; }
+}
+
+@media (min-width: 600px) {
+  .cards-grid     { grid-template-columns: repeat(2, 1fr); gap: 25px; }
+  .profile-header { margin-bottom: 50px; }
+}
+
+@media (min-width: 900px) {
+  .cards-grid     { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  .home-container { padding: 40px 20px; }
+  .profile-header { padding: 15px; margin-bottom: 60px; }
+  .profile-icon   { width: 70px; height: 70px; font-size: 2.2rem; }
+  .profile-name   { font-size: 1rem; }
+  .card           { flex-direction: column; text-align: center; padding: 30px; }
+  .card-icon      { width: 90px; height: 90px; }
+  .card-title     { font-size: 1.4rem; }
+  .card-description { font-size: 1rem; }
+}
+
 @media (min-width: 1200px) {
-  .home-container {
-    padding: 60px 20px;
-  }
+  .home-container { padding: 60px 20px; }
 }
 
-/* Invitation Modal Styles */
+/* Invitation Modal */
 .invitation-modal {
   display: none;
   position: fixed;
@@ -371,42 +295,17 @@ body {
   animation: fadeIn 0.3s ease;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 .modal-card {
   position: relative;
-  /* background: linear-gradient(135deg, #191414 0%, #2d1b1b 100%); */
-  background: linear-gradient(
-    135deg,
-    rgba(25, 20, 20, 0.539) 0%,
-    rgba(45, 27, 27, 0.613) 100%
-  );
-  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(25, 20, 20, 0.539) 0%, rgba(45, 27, 27, 0.613) 100%);
+  border-radius: var(--radius-lg);
   max-width: 500px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(29, 185, 84, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), var(--shadow-green);
   animation: slideUp 0.4s ease;
   z-index: 3001;
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
 
 .modal-close {
@@ -418,7 +317,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  color: white;
+  color: var(--text-primary);
   font-size: 1.2rem;
   cursor: pointer;
   display: flex;
@@ -436,32 +335,21 @@ body {
 .modal-header {
   text-align: center;
   padding: 40px 30px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .modal-icon {
   font-size: 3rem;
-  color: #1db954;
+  color: var(--accent-green);
   margin-bottom: 15px;
-  animation: bounce 1s ease infinite;
-}
-
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  animation: pulse 1s ease infinite;
 }
 
 .modal-title {
   font-size: 1.8rem;
   font-weight: 700;
-  color: white;
+  color: var(--text-primary);
   margin: 0;
-  font-family: "Poppins", sans-serif;
 }
 
 .modal-body {
@@ -475,7 +363,7 @@ body {
   margin-bottom: 25px;
   padding: 15px;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+  border-radius: var(--radius);
   transition: all 0.3s ease;
 }
 
@@ -488,11 +376,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    rgba(29, 185, 84, 0.3),
-    rgba(29, 185, 84, 0.1)
-  );
+  background: linear-gradient(135deg, rgba(29, 185, 84, 0.3), rgba(29, 185, 84, 0.1));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -501,7 +385,7 @@ body {
 
 .detail-icon i {
   font-size: 1.2rem;
-  color: #1db954;
+  color: var(--accent-green);
 }
 
 .detail-content {
@@ -511,7 +395,7 @@ body {
 .detail-label {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #b3b3b3;
+  color: var(--text-secondary);
   margin: 0 0 5px 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -520,7 +404,7 @@ body {
 .detail-value {
   font-size: 1.1rem;
   font-weight: 500;
-  color: white;
+  color: var(--text-primary);
   margin: 0;
   line-height: 1.4;
 }
@@ -535,72 +419,36 @@ body {
   align-items: center;
   gap: 10px;
   padding: 15px 30px;
-  background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-green-light) 100%);
+  color: var(--text-primary);
   text-decoration: none;
-  border-radius: 30px;
+  border-radius: var(--radius-full);
   font-weight: 600;
   font-size: 1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
+  box-shadow: var(--shadow-green);
 }
 
 .whatsapp-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(29, 185, 84, 0.4);
-  background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
+  background: linear-gradient(135deg, var(--accent-green-light) 0%, var(--accent-green) 100%);
 }
 
 .whatsapp-btn i {
   font-size: 1.3rem;
 }
 
-/* Mobile responsiveness for modal */
 @media (max-width: 600px) {
-  .modal-card {
-    max-width: 95vw;
-    border-radius: 15px;
-  }
-
-  .modal-header {
-    padding: 30px 20px 15px;
-  }
-
-  .modal-icon {
-    font-size: 2.5rem;
-  }
-
-  .modal-title {
-    font-size: 1.5rem;
-  }
-
-  .modal-body {
-    padding: 20px;
-  }
-
-  .invitation-detail {
-    padding: 12px;
-  }
-
-  .detail-icon {
-    width: 35px;
-    height: 35px;
-  }
-
-  .detail-icon i {
-    font-size: 1rem;
-  }
-
-  .detail-label {
-    font-size: 0.75rem;
-  }
-
-  .detail-value {
-    font-size: 1rem;
-  }
-
-  .whatsapp-btn {
-    width: 100%;
-    justify-content: center;
-  }
+  .modal-card       { max-width: 95vw; border-radius: 15px; }
+  .modal-header     { padding: 30px 20px 15px; }
+  .modal-icon       { font-size: 2.5rem; }
+  .modal-title      { font-size: 1.5rem; }
+  .modal-body       { padding: 20px; }
+  .invitation-detail { padding: 12px; }
+  .detail-icon      { width: 35px; height: 35px; }
+  .detail-icon i    { font-size: 1rem; }
+  .detail-label     { font-size: 0.75rem; }
+  .detail-value     { font-size: 1rem; }
+  .whatsapp-btn     { width: 100%; justify-content: center; }
 }
