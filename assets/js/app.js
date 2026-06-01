@@ -27,9 +27,9 @@ const CONFIG = {
 
 // ─── Invitation data (for profile modal) ────────────────────────────────────
 const invitationData = {
-  place: "Dejate sorprender mi amor!",
-  date: "Viernes, 10 de Abril hasta el 12 de Abril",
-  dressCode: "Lleva ropa linda, tendremos una cita en un restaurante lindo y luego, bueno, habran mas cosas.",
+  place: "Donde todo empezo!",
+  date: "Sabado, 6 de Junio",
+  dressCode: "Lleva ropa comoda y ponte hermoso como siempre",
   activity: "Agrega el evento a tu calendario: ",
   whatsappNumber: "3133751604",
 };
@@ -215,16 +215,195 @@ function initNoteAnimation() {
   draw();
 }
 
-function renderFeaturedMoment() {
-  const el = document.getElementById('momentCard');
-  el.href = CONFIG.featuredMoment.route;
-  el.innerHTML = `
-    <img class="moment-image" src="${CONFIG.featuredMoment.image}" alt="${CONFIG.featuredMoment.title}">
-    <div class="moment-overlay">
-      <p class="moment-title">${CONFIG.featuredMoment.title}</p>
-      <p class="moment-caption">${CONFIG.featuredMoment.caption}</p>
-    </div>
-  `;
+// ─── Moments Big Card Slideshow & Modal ──────────────────────────────────────
+// Paths in highlightsData.json use ../../ relative to pages/highlights/carousel.html.
+// Strip that prefix to get root-relative paths usable from index.html.
+function resolveHighlightPath(p) {
+  if (!p) return '';
+  if (p.startsWith('../../')) return p.slice(6);
+  return p;
+}
+
+let allSlides = [];
+let slideIdx   = 0;
+let slideTimer = null;
+let momentsAudioEl = null;
+let momentsPlaying = false;
+
+const SLIDE_MS = 4000;
+
+function initMomentsSlideshow(highlights) {
+  allSlides = highlights.flatMap(h =>
+    (h.slides || []).map(s => ({
+      image: resolveHighlightPath(s.image),
+      audio: resolveHighlightPath(s.audio),
+      text:  s.text || '',
+    }))
+  );
+  if (!allSlides.length) return;
+
+  slideIdx = 0;
+  showBigSlide(false);
+  startSlideTimer();
+  document.getElementById('momentBigCard').addEventListener('click', openMomentModal);
+}
+
+function showBigSlide(animated) {
+  const slide = allSlides[slideIdx];
+  const card  = document.getElementById('momentBigCard');
+
+  if (animated) {
+    card.classList.add('transitioning');
+    setTimeout(() => {
+      setBigSlide(slide);
+      card.classList.remove('transitioning');
+      restartBar();
+    }, 420);
+  } else {
+    setBigSlide(slide);
+    restartBar();
+  }
+}
+
+function setBigSlide(slide) {
+  const img  = document.getElementById('momentBigImg');
+  const text = document.getElementById('momentBigText');
+  img.src = slide.image;
+  img.onerror = () => { img.style.opacity = '0.2'; };
+  text.textContent = slide.text;
+}
+
+function restartBar() {
+  const bar = document.getElementById('momentBigBar');
+  if (!bar) return;
+  bar.classList.remove('running');
+  void bar.offsetWidth; // force reflow — resets the CSS animation
+  bar.classList.add('running');
+}
+
+function startSlideTimer() {
+  clearInterval(slideTimer);
+  slideTimer = setInterval(() => {
+    slideIdx = (slideIdx + 1) % allSlides.length;
+    showBigSlide(true);
+  }, SLIDE_MS);
+}
+
+function updateModalSlide(idx) {
+  slideIdx = idx;
+  const slide = allSlides[slideIdx];
+
+  document.getElementById('momentsModalImg').src = slide.image;
+  document.getElementById('momentsModalText').textContent = slide.text;
+  document.getElementById('momentsPrev').disabled = slideIdx === 0;
+  document.getElementById('momentsNext').disabled = slideIdx === allSlides.length - 1;
+
+  stopAudio();
+  if (slide.audio) {
+    document.getElementById('momentsAudioSection').style.display = 'flex';
+    loadAndAutoPlay(slide.audio);
+  } else {
+    document.getElementById('momentsAudioSection').style.display = 'none';
+  }
+}
+
+function openMomentModal() {
+  clearInterval(slideTimer);
+  document.getElementById('momentsModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  updateModalSlide(slideIdx);
+}
+
+function closeMomentModal() {
+  stopAudio();
+  document.getElementById('momentsModal').classList.remove('active');
+  document.body.style.overflow = '';
+  restartBar();
+  startSlideTimer(); // resume slideshow
+}
+
+function loadAndAutoPlay(src) {
+  if (!momentsAudioEl) {
+    momentsAudioEl = new Audio();
+    momentsAudioEl.addEventListener('timeupdate', onAudioTick);
+    momentsAudioEl.addEventListener('ended', () => { momentsPlaying = false; syncAudioBtn(); });
+  }
+  momentsAudioEl.src = src;
+  momentsAudioEl.load();
+  document.getElementById('momentsAudioFill').style.width = '0%';
+  document.getElementById('momentsAudioTime').textContent = '0:00';
+  momentsAudioEl.play().then(() => {
+    momentsPlaying = true;
+    syncAudioBtn();
+  }).catch(() => {
+    momentsPlaying = false;
+    syncAudioBtn();
+  });
+}
+
+function stopAudio() {
+  if (!momentsAudioEl) return;
+  momentsAudioEl.pause();
+  momentsAudioEl.currentTime = 0;
+  momentsPlaying = false;
+  syncAudioBtn();
+  document.getElementById('momentsAudioFill').style.width = '0%';
+  document.getElementById('momentsAudioTime').textContent = '0:00';
+}
+
+function syncAudioBtn() {
+  const btn = document.getElementById('momentsAudioBtn');
+  if (btn) btn.innerHTML = momentsPlaying
+    ? '<i class="fas fa-pause"></i>'
+    : '<i class="fas fa-play"></i>';
+}
+
+function onAudioTick() {
+  if (!momentsAudioEl) return;
+  const pct = momentsAudioEl.duration
+    ? (momentsAudioEl.currentTime / momentsAudioEl.duration) * 100 : 0;
+  document.getElementById('momentsAudioFill').style.width = pct + '%';
+  const s = Math.floor(momentsAudioEl.currentTime);
+  document.getElementById('momentsAudioTime').textContent =
+    `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+}
+
+function setupMomentsModal() {
+  document.getElementById('momentsModalOverlay').addEventListener('click', closeMomentModal);
+  document.getElementById('momentsModalClose').addEventListener('click', closeMomentModal);
+
+  document.getElementById('momentsAudioBtn').addEventListener('click', () => {
+    if (!momentsAudioEl) return;
+    if (momentsPlaying) {
+      momentsAudioEl.pause();
+      momentsPlaying = false;
+    } else {
+      momentsAudioEl.play().catch(() => {});
+      momentsPlaying = true;
+    }
+    syncAudioBtn();
+  });
+
+  document.getElementById('momentsAudioBar').addEventListener('click', e => {
+    if (!momentsAudioEl?.duration) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    momentsAudioEl.currentTime = ((e.clientX - rect.left) / rect.width) * momentsAudioEl.duration;
+  });
+
+  document.getElementById('momentsPrev').addEventListener('click', () => {
+    if (slideIdx > 0) updateModalSlide(slideIdx - 1);
+  });
+
+  document.getElementById('momentsNext').addEventListener('click', () => {
+    if (slideIdx < allSlides.length - 1) updateModalSlide(slideIdx + 1);
+  });
+
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('momentsModal').classList.contains('active')) return;
+    if (e.key === 'Escape')     closeMomentModal();
+    if (e.key === 'ArrowLeft')  document.getElementById('momentsPrev').click();
+    if (e.key === 'ArrowRight') document.getElementById('momentsNext').click();
+  });
 }
 
 function setupModal() {
@@ -235,7 +414,7 @@ function setupModal() {
   document.getElementById('invitationDressCode').textContent = invitationData.dressCode;
   document.getElementById('invitationActivity').textContent = invitationData.activity;
   document.getElementById('invitationActivity').innerHTML +=
-    `<a href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NGN2ZWJlaTNsMXNoZW5yaWp2dmVrdGsxdXYgY3Jpc3RpYW4uYy5sb3Blei5tQG0&tmsrc=cristian.c.lopez.m%40gmail.com" target="_blank" style="color:#8b5cf6;text-decoration:none;font-weight:700;"> Google Calendar</a>.`;
+    `<a href="https://calendar.app.google/2r6GrnV7MWVAnRvdA" target="_blank" style="color:#8b5cf6;text-decoration:none;font-weight:700;"> Google Calendar</a>.`;
 
   const msg = encodeURIComponent('Obvio que voy mi amorcito lindo!!!!!');
   document.getElementById('whatsappBtn').href = `https://wa.me/${invitationData.whatsappNumber}?text=${msg}`;
@@ -256,14 +435,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderHero();
   renderNote();
   startNoteRotation();
-  renderFeaturedMoment();
   setupModal();
+  setupMomentsModal();
 
-  try {
-    const res = await fetch(CONFIG.cardDataUrl);
-    const cards = await res.json();
-    renderNavGrid(cards);
-  } catch (err) {
-    console.error('Error loading cards:', err);
-  }
+  const [cardsRes, hlRes] = await Promise.allSettled([
+    fetch(CONFIG.cardDataUrl).then(r => r.json()),
+    fetch('./pages/highlights/assets/data/highlightsData.json').then(r => r.json()),
+  ]);
+
+  if (cardsRes.status === 'fulfilled') renderNavGrid(cardsRes.value);
+  else console.error('Error loading cards:', cardsRes.reason);
+
+  if (hlRes.status === 'fulfilled') initMomentsSlideshow(hlRes.value);
+  else console.error('Error loading highlights:', hlRes.reason);
 });

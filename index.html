@@ -17,8 +17,133 @@
   </head>
   <body>
     <div class="home-container">
-        Just wait a moment, I'm loading the content for you...
 
+      <!-- Zone 1: Identity Hero -->
+      <header class="hero-header">
+        <div class="hero-profile">
+          <div class="profile-icon" id="profileIcon">
+            <img src="./assets/img/profile.jpeg" alt="Profile Image" class="profile-image" />
+          </div>
+          <div class="hero-identity">
+            <h1 class="hero-name">Karen &amp; Cristian</h1>
+            <p class="hero-days"><span id="dayCount">0</span> days together</p>
+          </div>
+        </div>
+        <div id="heroCountdown"></div>
+      </header>
+
+      <!-- Zone 2: Navigation Grid -->
+      <section class="home-section">
+        <div class="nav-grid" id="navGrid"></div>
+      </section>
+
+      <!-- Zone 3: Read & Remember -->
+      <section class="home-section">
+        <h2 class="section-title">Read &amp; Remember</h2>
+        <div class="note-card" id="noteCard"></div>
+      </section>
+
+      <!-- Zone 4: Special Moments -->
+      <section class="home-section">
+        <h2 class="section-title">Let&#39;s check some of our special moments</h2>
+        <div class="moment-big-card" id="momentBigCard">
+          <img class="moment-big-img" id="momentBigImg" src="" alt="Memory">
+          <div class="moment-big-overlay">
+            <p class="moment-big-text" id="momentBigText"></p>
+            <div class="moment-big-progress-track">
+              <div class="moment-big-bar" id="momentBigBar"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Moments Modal -->
+    <div class="moments-modal" id="momentsModal">
+      <div class="moments-modal-overlay" id="momentsModalOverlay"></div>
+      <div class="moments-modal-content">
+        <button class="moments-modal-close" id="momentsModalClose" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="moments-modal-image-zone">
+          <img id="momentsModalImg" src="" alt="Memory">
+        </div>
+        <div class="moments-modal-bottom">
+          <p class="moments-modal-text" id="momentsModalText"></p>
+          <div class="moments-audio" id="momentsAudioSection">
+            <button class="moments-audio-btn" id="momentsAudioBtn" aria-label="Play/Pause">
+              <i class="fas fa-pause"></i>
+            </button>
+            <div class="moments-audio-bar" id="momentsAudioBar">
+              <div class="moments-audio-fill" id="momentsAudioFill"></div>
+            </div>
+            <span class="moments-audio-time" id="momentsAudioTime">0:00</span>
+          </div>
+
+          <div class="moments-nav">
+            <button class="moments-nav-btn" id="momentsPrev" aria-label="Previous">
+              <i class="fas fa-chevron-left"></i> Prev
+            </button>
+            <button class="moments-nav-btn" id="momentsNext" aria-label="Next">
+              Next <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Invitation Modal -->
+    <div class="invitation-modal" id="invitationModal">
+      <div class="modal-overlay" id="modalOverlay"></div>
+      <div class="modal-card">
+        <button class="modal-close" id="modalClose" aria-label="Cerrar Modal">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <div class="modal-header">
+          <i class="fas fa-envelope-open-text modal-icon"></i>
+          <h2 class="modal-title">Our Anniversary</h2>
+        </div>
+
+        <div class="modal-body">
+          <div class="invitation-detail">
+            <div class="detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="detail-content">
+              <h3 class="detail-label">Lugar</h3>
+              <p class="detail-value" id="invitationPlace"></p>
+            </div>
+          </div>
+          <div class="invitation-detail">
+            <div class="detail-icon"><i class="fas fa-calendar-alt"></i></div>
+            <div class="detail-content">
+              <h3 class="detail-label">Fecha y Hora</h3>
+              <p class="detail-value" id="invitationDate"></p>
+            </div>
+          </div>
+          <div class="invitation-detail">
+            <div class="detail-icon"><i class="fas fa-tshirt"></i></div>
+            <div class="detail-content">
+              <h3 class="detail-label">Código de Vestimenta</h3>
+              <p class="detail-value" id="invitationDressCode"></p>
+            </div>
+          </div>
+          <div class="invitation-detail">
+            <div class="detail-icon"><i class="fas fa-heart"></i></div>
+            <div class="detail-content">
+              <h3 class="detail-label">¿Qué Haremos?</h3>
+              <p class="detail-value" id="invitationActivity"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <a href="#" class="whatsapp-btn" id="whatsappBtn" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            <span>Confirm via WhatsApp</span>
+          </a>
+        </div>
+      </div>
     </div>
 
     <script src="./assets/js/app.js"></script>
