@@ -123,6 +123,101 @@ body {
   font-weight: 700;
 }
 
+/* ─── Anniversary Banner ───────────────────────────────────────────────── */
+.anniv-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 20px;
+  background: linear-gradient(135deg, #2a0f6b 0%, #3b1fa3 45%, #5b21b6 75%, #4c1d95 100%);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(139, 92, 246, 0.45);
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.25), 0 4px 20px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.25s ease,
+              border-color 0.25s ease;
+  animation: bannerPulse 4s ease-in-out infinite;
+}
+
+@keyframes bannerPulse {
+  0%, 100% { box-shadow: 0 0 24px rgba(139, 92, 246, 0.25), 0 4px 20px rgba(0,0,0,0.35); }
+  50%       { box-shadow: 0 0 44px rgba(139, 92, 246, 0.50), 0 4px 24px rgba(0,0,0,0.4); }
+}
+
+.anniv-banner:hover {
+  transform: translateY(-3px) scale(1.015);
+  box-shadow: 0 0 55px rgba(139, 92, 246, 0.55), 0 8px 28px rgba(0, 0, 0, 0.45);
+  border-color: rgba(167, 139, 250, 0.6);
+}
+
+.anniv-banner:active {
+  transform: translateY(0) scale(0.99);
+}
+
+/* Shimmer sweep */
+.anniv-banner-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.06) 50%, transparent 65%);
+  background-size: 200% 100%;
+  animation: shimmer 3.5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to   { background-position:  200% center; }
+}
+
+.anniv-banner-emoji {
+  font-size: 2.4rem;
+  flex-shrink: 0;
+  animation: emojiBounce 2.8s ease-in-out infinite;
+  line-height: 1;
+}
+
+@keyframes emojiBounce {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50%       { transform: translateY(-6px) rotate(5deg); }
+}
+
+.anniv-banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.anniv-banner-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.anniv-banner-sub {
+  font-size: 0.76rem;
+  color: rgba(196, 181, 253, 0.85);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.anniv-banner-sub i {
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+}
+
+.anniv-banner:hover .anniv-banner-sub i {
+  transform: translateX(3px);
+}
+
 /* ─── Navigation Grid ──────────────────────────────────────────────────── */
 .nav-grid {
   display: grid;
