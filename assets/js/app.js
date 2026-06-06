@@ -65,10 +65,16 @@ function renderHero() {
   animateCounter(dayEl, getDaysTogether());
 
   const daysLeft = getDaysToAnniversary();
-  document.getElementById('heroCountdown').innerHTML = `
+  // document.getElementById('heroCountdown').innerHTML = `
+  //   <span class="countdown-badge">
+  //     <i class="fas fa-calendar-day"></i>
+  //     ${CONFIG.anniversaryLabel} &middot; <strong>${daysLeft}</strong> day${daysLeft !== 1 ? 's' : ''}
+  //   </span>
+  // `;
+    document.getElementById('heroCountdown').innerHTML = `
     <span class="countdown-badge">
       <i class="fas fa-calendar-day"></i>
-      ${CONFIG.anniversaryLabel} &middot; <strong>${daysLeft}</strong> day${daysLeft !== 1 ? 's' : ''}
+      One year together!
     </span>
   `;
 }

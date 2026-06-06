@@ -11,12 +11,12 @@
     "g3": "#8b5cf6"
   },
   {
-    "tag": "Favorite Memory",
+    "tag": "Concert",
     "icon": "📸",
-    "stat": null,
-    "statLabel": null,
-    "title": "Cartagena Trip",
-    "subtitle": "Our most revisited memory of the year.",
+    "stat": "1",
+    "statLabel": "Concerts",
+    "title": "Kali Uchis Concert",
+    "subtitle": "Our most revisited memory of the year, something you really wanted, I hope you can remember this for life.",
     "g1": "#2d0050",
     "g2": "#7e22ce",
     "g3": "#e879f9"
@@ -24,10 +24,10 @@
   {
     "tag": "Soundtrack of the Year",
     "icon": "🎵",
-    "stat": null,
-    "statLabel": null,
-    "title": "Perfect",
-    "subtitle": "Ed Sheeran",
+    "stat": "1",
+    "statLabel": "Top Song",
+    "title": "Tip Toe",
+    "subtitle": "HYBS - The song that played on repeat during our first year together, and still holds a special place in our hearts.",
     "g1": "#0f0f3a",
     "g2": "#3730a3",
     "g3": "#818cf8"
@@ -35,10 +35,10 @@
   {
     "tag": "Most Requested Date",
     "icon": "🍔",
-    "stat": "18",
+    "stat": "18+",
     "statLabel": "Burger Dates",
     "title": "The Burger Chronicles",
-    "subtitle": "And you never got tired of it.",
+    "subtitle": "And we're just getting started.",
     "g1": "#35003b",
     "g2": "#9333ea",
     "g3": "#c084fc"
@@ -46,10 +46,10 @@
   {
     "tag": "Memories",
     "icon": "📷",
-    "stat": "1,284",
+    "stat": "50+",
     "statLabel": "Photos Together",
     "title": "Every Frame a Gift",
-    "subtitle": "And we're just getting started.",
+    "subtitle": "I know I don't take as many photos as you do, but every moment with you is worth capturing.",
     "g1": "#050f30",
     "g2": "#1d4ed8",
     "g3": "#6366f1"
@@ -59,8 +59,30 @@
     "icon": "💌",
     "stat": null,
     "statLabel": null,
-    "title": "\"Every day with you is a gift.\"",
-    "subtitle": "You said this once. I never forgot it.",
+    "title": "\"I love you.\"",
+    "subtitle": "Since we started dating, these three words have been the most meaningful and powerful expression of our feelings for each other. They encapsulate the depth of our connection and the love we share.",
+    "g1": "#1a0a40",
+    "g2": "#6d28d9",
+    "g3": "#a78bfa"
+  },
+    {
+    "tag": "How Many Trips",
+    "icon": "🚙",
+    "stat": "2",
+    "statLabel": "Trips",
+    "title": "\"\"",
+    "subtitle": "We had two trips during this year, there were little, I promise you when I have more time and money I will take you to one beautiful place.",
+    "g1": "#1a0a40",
+    "g2": "#6d28d9",
+    "g3": "#a78bfa"
+  },
+     {
+    "tag": "How Many Playlist",
+    "icon": "▶︎•၊၊||၊|။||||။၊|။•",
+    "stat": "2",
+    "statLabel": "Playlist",
+    "title": "",
+    "subtitle": "We have one playlist for all the songs that we want to hear together, we lost our routine to ask each other for the song of the week, I'll retake it, please keep that in mind, and how to forget the playlist I made for you!",
     "g1": "#1a0a40",
     "g2": "#6d28d9",
     "g3": "#a78bfa"
@@ -68,8 +90,8 @@
   {
     "tag": "Year One",
     "icon": "❤️",
-    "stat": null,
-    "statLabel": null,
+    "stat": "1",
+    "statLabel": "Year",
     "title": "Thank You",
     "subtitle": "For an incredible first year together.\nHere's to many more.",
     "g1": "#1a0018",

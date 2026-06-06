@@ -9,19 +9,19 @@
     "id": "movie-night",
     "emoji": "🎬",
     "title": "Movie Night",
-    "description": "You choose the movie. I'll bring the snacks. No complaints."
+    "description": "You choose the movie. I'll bring the snacks and the face masks. No complaints."
   },
   {
     "id": "coffee-date",
     "emoji": "☕",
     "title": "Coffee Date",
-    "description": "Any coffee shop of your choice. Just the two of us."
+    "description": "Any coffee shop of your choice. Just the two of us with coffee and a good dessert."
   },
   {
-    "id": "love-letter",
-    "emoji": "📝",
-    "title": "Secret Love Letter",
-    "description": "A handwritten letter waiting for you. Claim when you're ready."
+    "id": "trip-date",
+    "emoji": "✈️",
+    "title": "Trip Date",
+    "description": "A surprise trip to somewhere you've always wanted to go however ask me one month before. Redeemable anytime."
   },
   {
     "id": "recreate-memory",
