@@ -1,0 +1,32 @@
+[
+  {
+    "id": "burger-date",
+    "emoji": "🍔",
+    "title": "Burger Date",
+    "description": "A full burger date, your pick of the place. Redeemable anytime."
+  },
+  {
+    "id": "movie-night",
+    "emoji": "🎬",
+    "title": "Movie Night",
+    "description": "You choose the movie. I'll bring the snacks and the face masks. No complaints."
+  },
+  {
+    "id": "coffee-date",
+    "emoji": "☕",
+    "title": "Coffee Date",
+    "description": "Any coffee shop of your choice. Just the two of us with coffee and a good dessert."
+  },
+  {
+    "id": "trip-date",
+    "emoji": "✈️",
+    "title": "Trip Date",
+    "description": "A surprise trip to somewhere you've always wanted to go however ask me one month before. Redeemable anytime."
+  },
+  {
+    "id": "recreate-memory",
+    "emoji": "📸",
+    "title": "Recreate a Memory",
+    "description": "We pick our favorite photo and recreate it. Your choice."
+  }
+]
