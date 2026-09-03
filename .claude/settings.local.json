@@ -2,7 +2,15 @@
   "permissions": {
     "allow": [
       "Bash(git restore *)",
-      "Bash(git clean *)"
+      "Bash(git clean *)",
+      "Bash(python -c \"import json; json.load\\(open\\(r'C:\\\\Users\\\\User\\\\Documents\\\\Cristian\\\\code\\\\forHer\\\\assets\\\\data\\\\cardsData.json'\\)\\); print\\('json ok'\\)\")",
+      "Bash(node --check \"C:\\\\Users\\\\User\\\\Documents\\\\Cristian\\\\code\\\\forHer\\\\pages\\\\pompom-3d\\\\assets\\\\js\\\\app.js\")",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\(String.raw\\\\`C:\\\\Users\\\\User\\\\Documents\\\\Cristian\\\\code\\\\forHer\\\\assets\\\\data\\\\cardsData.json\\\\`\\)\\); console.log\\('json ok'\\)\")",
+      "PowerShell(python --version)",
+      "PowerShell(powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-User-Documents-Cristian-code-forHer\\\\03857dd5-6460-4900-bcc4-9284e282c93a\\\\scratchpad\\\\serve.ps1\")",
+      "PowerShell(Invoke-WebRequest -UseBasicParsing http://localhost:8123/pages/pompom-3d/index.html | Select-Object StatusCode, @{n='Length';e={$_.RawContentLength}})",
+      "Bash(curl -s \"https://sketchfab.com/oembed?url=https://sketchfab.com/models/1f76e4d811ed42daa35e06d6f0d850a7\" -o oembed.json)",
+      "Bash(curl -s \"https://media.sketchfab.com/models/1f76e4d811ed42daa35e06d6f0d850a7/thumbnails/f6d6a5c2f5014510a699b1358f259a64/ab2e7c508c784c10abacd4f6dda01d3a.jpeg\" -o purin-ref.jpg)"
     ]
   }
 }

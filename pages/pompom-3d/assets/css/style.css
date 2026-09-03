@@ -1,0 +1,101 @@
+/* pompom-3d — page layout only (palette tokens live in assets/css/theme.css) */
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.back-dashboard {
+  margin-bottom: 20px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.page-header p {
+  color: var(--text-primary);
+  opacity: 0.7;
+  font-size: 0.95rem;
+}
+
+.stage-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.stage {
+  width: 100%;
+  height: min(62vh, 560px);
+  border: 1px solid var(--border-purple);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-purple);
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+}
+
+.stage.dragging {
+  cursor: grabbing;
+}
+
+.stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.stage-hint {
+  color: var(--accent-purple-light);
+  font-size: 0.9rem;
+  opacity: 0.85;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .stage {
+    height: min(55vh, 460px);
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    padding: 18px 14px 28px;
+  }
+
+  .page-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .stage {
+    height: 50vh;
+  }
+
+  .stage-hint {
+    font-size: 0.8rem;
+  }
+}

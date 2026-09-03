@@ -1,0 +1,59 @@
+<!-- claude --resume 03857dd5-6460-4900-bcc4-9284e282c93a -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../assets/img/page-icon.png"
+      sizes="16x16"
+    />
+    <title>Karen - Tu Pompompurin</title>
+    <link rel="stylesheet" href="../../assets/css/theme.css" />
+    <link rel="stylesheet" href="../../assets/css/base.css" />
+    <link rel="stylesheet" href="../../assets/css/components.css" />
+    <link rel="stylesheet" href="../../assets/css/animations.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!--
+      EXCEPTION (user-approved): Three.js via CDN is explicitly sanctioned for this
+      page only, as a rendering exception to the "no external libraries" rule.
+      Do not treat this as precedent for UI frameworks/libraries.
+    -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="back-dashboard">
+        <a href="../../index.html" class="dashboard-btn">
+          <i class="fas fa-arrow-left"></i> Volver
+        </a>
+      </div>
+
+      <header class="page-header">
+        <h1>Tu Pompompurin 💛</h1>
+        <p>Un amiguito que siempre estará aquí para ti, como yo.</p>
+      </header>
+
+      <section class="stage-wrap">
+        <div class="stage" id="pompom-stage" aria-label="Pompompurin en 3D"></div>
+        <p class="stage-hint">arrástrame 🐾 · tócame para verme saltar</p>
+      </section>
+    </div>
+
+    <script type="module" src="./assets/js/app.js"></script>
+  </body>
+</html>

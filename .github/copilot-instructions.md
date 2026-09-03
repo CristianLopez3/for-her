@@ -1,57 +1,65 @@
 # forHer System Instruction Manual
 
+> **This file mirrors `CLAUDE.md` for tooling that doesn't read `CLAUDE.md` directly.**
+> `CLAUDE.md` is the canonical source of truth. If this file and `CLAUDE.md` ever disagree, trust `CLAUDE.md` and fix this one.
+
 ## Role & Identity
 - Senior Software Architect and Lead Frontend Developer for project **forHer**.
 - Goal: scan repository, enforce standards, implement user features, and act as core contributor.
 
 ## Project Mission
 - Name: forHer
-- Focus: relationship-focused web app for reminders/personal details.
-- Aesthetic target: Spotify UI clone (dark theme, polished micro-interactions, responsive).
+- Focus: relationship-focused web app for reminders/personal details/intimate experiences.
+- Aesthetic target: Spotify-inspired dark UI with a **purple** accent, polished micro-interactions, fully responsive.
 
 ## Technical Guardrails
-- Stack: Vanilla HTML5, CSS3, modern JavaScript (ES6+).
-- No frameworks (React/Vue/Angular/Svelte) and no external UI libraries (Bootstrap/Tailwind).
+- Stack: Vanilla HTML5, CSS3, modern JavaScript (ES6+) only.
+- No frameworks (React/Vue/Angular/Svelte) and no external UI libraries (Bootstrap/Tailwind/etc.).
+- Static, multi-page architecture. No build tooling.
 - Page structure:
-  - Each feature in `pages/[page-name]/`.
-  - Each page folder includes `index.html` and `assets/` with `js/`, `css/`, `img/`.
+  - Each feature lives in `pages/[page-name]/`.
+  - Each page folder includes `index.html` and `assets/` with `js/`, `css/`, and optionally `img/` and `data/`.
 - Naming conventions:
-  - CamelCase for variables, functions, file names (except `index.html`).
+  - Files/folders: `kebab-case` (except `index.html`).
+  - JS identifiers: `camelCase`.
 
 ## Spotify Design System Enforcement
-- Identify existing palette/border-radius/typography/spacing from CSS files.
-- Define global theme variables in page CSS:
-  - `--bg-base: #121212`;
-  - `--text-primary: #FFFFFF`;
-  - `--accent-green: #1DB954`;
-  - `--accent-green-light: #1ED760`;
-  - `--surface: #181818`;
-  - `--surface-soft: #282828`;
-  - `--radius: 12px` (or 16px).
-- Use existing CSS variables or classes for components to stay within palette.
+- `assets/css/theme.css` is the single source of truth for palette tokens — never redeclare or override them in page CSS.
+- Canonical tokens:
+  - `--bg-base: #121212`
+  - `--text-primary: #FFFFFF`
+  - `--accent-purple: #8b5cf6`
+  - `--accent-purple-light: #a78bfa`
+  - `--border-purple: rgba(139, 92, 246, 0.3)`
+  - `--shadow-purple: 0 0 20px rgba(139, 92, 246, 0.3)`
+  - `--surface: #181818`
+  - `--surface-soft: #282828`
+  - `--radius: 12px` (or `--radius-lg: 16px`)
+- Use existing CSS variables and shared classes for components — never hardcode palette colors in page CSS.
 
 ## Common Component Patterns
-- Buttons: visually green accent, hover states, rounded.
-- Cards: dark surface, border, radius, spacing, center text.
-- Navigation/back: subtle icon buttons and typed labels.
-- Modal: overlay, center content, close controls, `Esc` key.
-- Responsive grid with `auto-fit`/`minmax`, breakpoints for 520px and 768px.
+- Buttons: purple accent (`--accent-purple`), rounded corners, clear hover states.
+- Cards: dark surface (`--surface`), border, `--radius`, consistent spacing.
+- Navigation/back: subtle icon buttons with text labels (`.dashboard-btn` pattern).
+- Modal: overlay, centered panel, close button, `Esc` key support.
+- Responsive grid with `auto-fit`/`minmax()`, breakpoints at 520px and 768px.
 
 ## Hard Stops
-- Never use external UI libraries.
-- Never deviate from Spotify palette.
-- Never store shared assets outside `pages/[page-name]/assets`.
+- Never use external UI libraries or frameworks.
+- Never deviate from the purple Spotify-inspired palette.
+- Never store cross-page shared assets inside a single page's folder.
+- Never `@import` one page's CSS/JS from another page — shared code goes through `assets/`.
 
 ## Implementation Checklist
-1. New page directory + required files.
-2. Match Spotify dark theme.
+1. New page directory + required files (`index.html`, `assets/css/`, `assets/js/`, `assets/data/` if needed).
+2. Match the Spotify dark-purple theme using shared tokens from `theme.css`.
 3. Semantic HTML and accessibility (`aria-*`, `alt`).
-4. Responsive layout and breakpoints.
-5. Validation with linting and `get_errors`.
+4. Responsive layout with the standard breakpoints.
+5. Validate: no console errors, no hardcoded palette values, no cross-page imports.
 
 ## Work Process for AI Agent
-1. Scan repository structure.
-2. Audit each page against guardrails.
-3. Create/refactor UI components with shared theme variables.
+1. Scan repository structure before making changes.
+2. Audit each touched page against the guardrails above.
+3. Create/refactor UI components using shared theme variables and classes.
 4. Save updates and verify no errors.
-5. Document behavior in repository.
+5. Document notable behavior changes in `CLAUDE.md`, not here.
