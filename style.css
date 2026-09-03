@@ -123,6 +123,105 @@ body {
   font-weight: 700;
 }
 
+/* ─── Anniversaries Carousel ───────────────────────────────────────────── */
+.anniv-carousel {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+  /* Bleed to the container edges so cards can peek off-screen */
+  margin: 0 -16px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.anniv-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.anniv-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 0 0 auto;
+  width: 78%;
+  max-width: 300px;
+  scroll-snap-align: start;
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  border-top: 3px solid var(--border-subtle);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.anniv-card:hover {
+  background: var(--surface-soft);
+  transform: translateY(-3px);
+}
+
+.anniv-card--today {
+  border-top-color: var(--accent-purple);
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.anniv-card--soon {
+  border-top-color: var(--accent-purple-light);
+}
+
+.anniv-card-emoji {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.anniv-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.anniv-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.anniv-card-date {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.anniv-card-countdown {
+  align-self: flex-start;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--accent-purple);
+  padding: 6px 12px;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid var(--border-purple);
+  border-radius: var(--radius-full);
+  text-align: center;
+}
+
+.anniv-card--past .anniv-card-countdown {
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--border-subtle);
+}
+
+.anniv-card--today .anniv-card-countdown {
+  color: #ffffff;
+  background: var(--accent-purple);
+  border-color: var(--accent-purple);
+}
+
 /* ─── Anniversary Banner ───────────────────────────────────────────────── */
 .anniv-banner {
   position: relative;

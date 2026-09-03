@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>A Pesar de Todo</title>
+  <link rel="stylesheet" href="../../assets/css/theme.css" />
+  <link rel="stylesheet" href="../../assets/css/base.css" />
+  <link rel="stylesheet" href="../../assets/css/components.css" />
+  <link rel="stylesheet" href="../../assets/css/animations.css" />
+  <link rel="stylesheet" href="./assets/css/despite-it-all.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+  <a class="dashboard-btn despite-back-btn" href="../../index.html">&larr; Volver al inicio</a>
+
+  <img class="despite-logo" src="./assets/img/peace-logo.png" alt="A Pesar de Todo" />
+
+  <audio id="bgAudio" src="./assets/mp3/tip-toe.mp3" loop preload="none"></audio>
+  <button class="despite-audio-btn" id="audioToggle" type="button" aria-label="Reproducir música de fondo">
+    <i class="fas fa-music"></i>
+  </button>
+
+  <div class="despite-indicator" id="scrollIndicator">Desliza hacia abajo ↓</div>
+
+  <main id="despiteContainer" class="despite-container" aria-live="polite">
+    <!-- Slides se insertan aquí dinámicamente -->
+  </main>
+
+  <script src="./assets/js/despite-it-all.js"></script>
+</body>
+</html>

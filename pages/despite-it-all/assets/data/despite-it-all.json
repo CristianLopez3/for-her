@@ -1,0 +1,71 @@
+[
+  {
+    "id": 1,
+    "title": "A veces la vida golpea duro, <b class='green'>pero seguimos escogiéndonos</b>",
+    "text": "Esta es la historia de nuestros días difíciles, y de por qué el amor decide y decidira quedarse de todos modos.",
+    "tone": "slide-tone-1",
+    "classes": "slide-title-big"
+  },
+  {
+    "id": 2,
+    "title": "Cuando vas tarde y el estrés te alcanza antes que el reloj",
+    "text": "Sé que las mañanas apuradas te sacan de quicio, que el tráfico y los minutos que se escapan te hacen explotar antes de siquiera saludarme bien. Como en <i>Daylight</i>, a veces hace falta que el día avance un poco para que todo se vea más claro. <b class='strong-yellow'>Aprendí a esperar</b>, a no tomarlo personal, porque sé que detrás del apuro sigues siendo tú.",
+    "tone": "slide-tone-2"
+  },
+  {
+    "id": 3,
+    "title": "Cuando mi trabajo me pesa más de lo que debería",
+    "text": "Hay días en que llego con la cabeza llena de pendientes y el corazón un poco más corto de paciencia. <i>This Is Me Trying</i> podría ser el himno de esas noches en las que hago lo que puedo con lo que tengo. <b class='green'>Gracias por quedarte</b> incluso cuando no soy la mejor versión de mí mismo.",
+    "tone": "slide-tone-3"
+  },
+  {
+    "id": 4,
+    "title": "Cuando llegas cansada, con dolor de cabeza y el mundo encima",
+    "text": "Sé que tu trabajo te exprime algunos días, que llegas queriendo silencio y no preguntas. <b class='strong-yellow'>Estoy aprendiendo a leer esos silencios</b>, a ofrecer un abrazo antes que palabras. No siempre lo logro a la perfección, pero lo sigo intentando, como quien practica <i>Peace</i> todos los días.",
+    "tone": "slide-tone-4"
+  },
+  {
+    "id": 5,
+    "title": "Cuando nada me sale como quiero",
+    "text": "Hay días donde siento que fallo en todo lo que intento, y la frustración se me sale sin avisar. Tú sigues ahí, sin salir corriendo, recordándome que <b class='green'>no tengo que ganar todas las batallas</b> para merecer tu cariño.",
+    "tone": "slide-tone-5"
+  },
+  {
+    "id": 6,
+    "title": "Cuando no estamos de acuerdo en algo",
+    "text": "No siempre pensamos igual, y está bien. Hemos discutido, nos hemos quedado en silencio un rato, como en <i>The Story of Us</i>, pero aprendimos que el silencio no tiene que ser el final del capítulo. <b class='strong-yellow'>Aprendimos a volver</b>, a hablar aunque duela, a escuchar aunque cueste.",
+    "tone": "slide-tone-2"
+  },
+  {
+    "id": 7,
+    "title": "Cuando simplemente es un mal día",
+    "text": "A veces no hay una razón clara, solo un mal día que se pega a la piel. Y aunque queramos <i>Shake It Off</i> y seguir como si nada, algunos días pesan más. En esos días aprendimos que basta con estar cerca o recordarnos lo mucho que nos amammos, sin arreglarlo todo, solo acompañando.",
+    "tone": "slide-tone-1"
+  },
+  {
+    "id": 8,
+    "title": "De todo esto, hemos aprendido a querernos mejor",
+    "text": "Aún estamos lejos de ser perfectos, y seguramente seguiremos discutiendo por cosas pequeñas y por días difíciles. Pero <b class='green'>aprendimos a perdonarnos</b>, a entender al otro incluso cuando no tenemos las palabras correctas, a apoyarnos incluso en nuestros peores momentos. <b class='strong-yellow'>Eso es lo que importa</b>: seguirnos queriendo.",
+    "tone": "slide-tone-3"
+  },
+  {
+    "id": 9,
+    "title": "Un pequeño gesto que lo dice todo",
+    "text": "En medio de una discusión, sin buscarlo y siempre lo he creído asi, creemos que el otro solo piensa en el otro, porque yo lo hago. No hace falta que ninguno lo diga en voz alta — somos nosotros simplemente buscandonos, un 'te amo' susurrado a mitad de un mal día. Pequeño, simple, y aún así, es lo más hermoso que tenemos.",
+    "tone": "slide-tone-4"
+  },
+  {
+    "id": 10,
+    "title": "A pesar de todo, aquí seguimos",
+    "text": "Con estrés, con cansancio, con desacuerdos y malos días — seguimos escogiéndonos cada vez. Como un <i>Invisible String</i> que nos ha traído hasta aquí, seguimos amándonos, un día difícil a la vez.",
+    "tone": "slide-tone-5",
+    "classes": "slide-title-big"
+  },
+    {
+    "id": 10,
+    "title": "Y si, busque esas referencias",
+    "text": "Aunque no lo creas, si busque esas referencias, porque quien mas que tu artista favorito para describir lo que sentimos, para mostrarte que me importas y que te escucho, que te entiendo y que te amo. <b class='strong-yellow'>Gracias por nacer Karen.</b>.",
+    "tone": "slide-tone-5",
+    "classes": "slide-tone-5"
+  }
+]

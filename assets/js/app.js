@@ -4,6 +4,7 @@ const CONFIG = {
   relationshipStart: new Date('2025-06-06'),
   anniversaryLabel: 'Our Anniversary',
   cardDataUrl: 'assets/data/cardsData.json',
+  anniversariesUrl: 'assets/data/anniversariesData.json',
 
   notes: [
     "I'll love you eternally",
@@ -88,6 +89,89 @@ function renderNavGrid(cards) {
       </div>
       <span class="nav-item-title">${card.title}</span>
     </a>
+  `).join('');
+}
+
+// ─── Anniversaries ───────────────────────────────────────────────────────────
+const MS_DAY = 1000 * 60 * 60 * 24;
+const MONTHS_ES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+  'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+
+// Parse "YYYY-MM-DD" as a local date (avoids UTC off-by-one).
+function parseLocalDate(str) {
+  const [y, m, d] = str.split('-').map(Number);
+  return new Date(y, m - 1, d);
+}
+
+function startOfToday() {
+  const t = new Date();
+  return new Date(t.getFullYear(), t.getMonth(), t.getDate());
+}
+
+function pluralDays(n) {
+  return `${n} ${n === 1 ? 'día' : 'días'}`;
+}
+
+// Returns { label, tone, sortKey } describing when an anniversary next lands.
+function getAnnivStatus(anniv) {
+  const base = parseLocalDate(anniv.date);
+  const today = startOfToday();
+
+  if (anniv.recurring === 'yearly') {
+    let next = new Date(today.getFullYear(), base.getMonth(), base.getDate());
+    if (next < today) next.setFullYear(next.getFullYear() + 1);
+    const days = Math.round((next - today) / MS_DAY);
+    if (days === 0) return { label: '¡Hoy! 🎉', tone: 'today', sortKey: -1 };
+    if (days === 1) return { label: 'Mañana', tone: 'soon', sortKey: 1 };
+    return {
+      label: `en ${pluralDays(days)}`,
+      tone: days <= 30 ? 'soon' : 'upcoming',
+      sortKey: days,
+    };
+  }
+
+  // One-time date
+  const days = Math.round((base - today) / MS_DAY);
+  if (days === 0) return { label: '¡Hoy! 🎉', tone: 'today', sortKey: -1 };
+  if (days > 0) {
+    return {
+      label: `en ${pluralDays(days)}`,
+      tone: days <= 30 ? 'soon' : 'upcoming',
+      sortKey: days,
+    };
+  }
+  // Past
+  const ago = Math.abs(days);
+  let agoLabel;
+  if (ago < 30)       agoLabel = `hace ${pluralDays(ago)}`;
+  else if (ago < 365) agoLabel = `hace ${Math.round(ago / 30)} meses`;
+  else                agoLabel = `hace ${Math.round(ago / 365)} año(s)`;
+  return { label: agoLabel, tone: 'past', sortKey: 100000 + ago };
+}
+
+function formatAnnivDate(anniv) {
+  const d = parseLocalDate(anniv.date);
+  const base = `${d.getDate()} de ${MONTHS_ES[d.getMonth()]}`;
+  return anniv.recurring === 'yearly' ? base : `${base} de ${d.getFullYear()}`;
+}
+
+function renderAnniversaries(list) {
+  const container = document.getElementById('annivList');
+  if (!container) return;
+
+  const items = list
+    .map(a => ({ ...a, status: getAnnivStatus(a) }))
+    .sort((a, b) => a.status.sortKey - b.status.sortKey);
+
+  container.innerHTML = items.map(a => `
+    <div class="anniv-card anniv-card--${a.status.tone}">
+      <span class="anniv-card-emoji">${a.emoji || '💜'}</span>
+      <div class="anniv-card-info">
+        <span class="anniv-card-title">${a.title}</span>
+        <span class="anniv-card-date">${formatAnnivDate(a)}</span>
+      </div>
+      <span class="anniv-card-countdown">${a.status.label}</span>
+    </div>
   `).join('');
 }
 
@@ -444,9 +528,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupModal();
   setupMomentsModal();
 
-  const [cardsRes, hlRes] = await Promise.allSettled([
+  const [cardsRes, hlRes, annivRes] = await Promise.allSettled([
     fetch(CONFIG.cardDataUrl).then(r => r.json()),
     fetch('./pages/highlights/assets/data/highlightsData.json').then(r => r.json()),
+    fetch(CONFIG.anniversariesUrl).then(r => r.json()),
   ]);
 
   if (cardsRes.status === 'fulfilled') renderNavGrid(cardsRes.value);
@@ -454,4 +539,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   if (hlRes.status === 'fulfilled') initMomentsSlideshow(hlRes.value);
   else console.error('Error loading highlights:', hlRes.reason);
+
+  if (annivRes.status === 'fulfilled') renderAnniversaries(annivRes.value);
+  else console.error('Error loading anniversaries:', annivRes.reason);
 });

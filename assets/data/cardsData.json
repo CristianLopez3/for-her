@@ -37,9 +37,9 @@
     "route": "pages/wrapped/index.html"
   },
   {
-    "title": "Tu Pompompurin",
-    "description": "A little 3D friend made just for you — drag him around and tap him",
-    "icon": "./assets/img/icons/pompom-3d.png",
-    "route": "pages/pompom-3d/index.html"
+    "title": "A Pesar de Todo",
+    "description": "Los días difíciles, y por qué el amor se quedó de todos modos",
+    "icon": "./assets/img/icons/despite-it-all-icon.png",
+    "route": "pages/despite-it-all/index.html"
   }
 ]

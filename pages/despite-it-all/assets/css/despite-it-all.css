@@ -1,0 +1,246 @@
+/* Page-specific tokens */
+:root {
+  --max-width: 1100px;
+}
+
+body {
+  background: linear-gradient(180deg, var(--bg-base) 0%, var(--bg-elevated) 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.45;
+  overflow-x: hidden;
+}
+
+/* Back button */
+.despite-back-btn {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 70;
+}
+
+/* Logo */
+.despite-logo {
+  position: fixed;
+  top: 14px;
+  right: 18px;
+  height: 40px;
+  width: auto;
+  z-index: 70;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-purple);
+}
+
+/* Background audio toggle */
+.despite-audio-btn {
+  position: fixed;
+  top: 64px;
+  right: 18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border-purple);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 70;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.despite-audio-btn:hover {
+  background: var(--surface-soft);
+  transform: scale(1.06);
+}
+
+.despite-audio-btn.is-playing {
+  color: var(--accent-purple-light);
+  box-shadow: var(--shadow-purple);
+}
+
+/* Indicator */
+.despite-indicator {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  color: var(--text-secondary);
+  padding: 8px 14px;
+  border-radius: 24px;
+  font-size: 0.9rem;
+  z-index: 60;
+  border: 1px solid var(--border-purple);
+  opacity: 0;
+  transform: translateX(-50%) translateY(-8px);
+  transition: opacity 0.35s, transform 0.35s;
+}
+
+.despite-indicator.is-active {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Container */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.despite-container {
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Slide */
+.slide {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 90px 20px 40px;
+  transition: background-color 0.9s ease, transform 0.6s ease;
+  position: relative;
+  isolation: isolate;
+  will-change: transform, background-color;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.12));
+  mix-blend-mode: overlay;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.slide.visible::before { opacity: 1; }
+
+.slide.visible { transform: translateY(-6px); }
+
+/* Inner layout */
+.slide-inner {
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  gap: 36px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Media (kept for parity with the wrapped pattern, unused when a slide has no image) */
+.slide-media {
+  flex: 0 0 42%;
+  max-width: 42%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-media img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 26px 80px rgba(0, 0, 0, 0.65), var(--shadow-purple);
+  transform: translateY(12px) scale(0.98);
+  transition: transform 0.9s cubic-bezier(0.2, 0.9, 0.2, 1), box-shadow 0.6s, filter 0.6s;
+  filter: blur(0.3px) contrast(0.98);
+}
+
+/* Content */
+.slide-content { flex: 1; min-width: 0; max-width: 68ch; color: var(--text-primary); }
+
+.slide-title {
+  font-size: clamp(1.6rem, 4.2vw, 2.6rem);
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
+  transition: opacity 0.65s ease, transform 0.75s cubic-bezier(0.2, 0.9, 0.2, 1), text-shadow 0.6s;
+  text-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+}
+
+.slide-title-big .slide-title {
+  font-size: clamp(2rem, 6vw, 3.4rem);
+}
+
+.slide-text {
+  color: var(--text-secondary);
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  margin-top: 10px;
+  max-width: 60ch;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.65s ease, transform 0.75s cubic-bezier(0.2, 0.9, 0.2, 1);
+  line-height: 1.55;
+}
+
+/* Entrance stagger — applied via class toggle instead of inline transition-delay */
+.slide-title.stagger-delay      { transition-delay: 0s; }
+.slide-text.stagger-delay       { transition-delay: 0.08s; }
+.slide-media img.stagger-delay  { transition-delay: 0.12s; }
+
+/* Visible state */
+.slide.visible .slide-title,
+.slide.visible .slide-text,
+.slide.visible .slide-media img {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.slide.visible .slide-media img {
+  transform: translateY(0) scale(1);
+  filter: blur(0) saturate(1.05) contrast(1.02);
+  box-shadow: 0 34px 110px rgba(0, 0, 0, 0.66), var(--shadow-purple);
+}
+
+/* Color utilities */
+.green { color: var(--accent-purple); }
+.strong-yellow { color: var(--accent-purple-light); }
+.bigger-font { font-size: 30px; }
+
+/* Slide tone variants — built from theme tokens, no raw hex introduced */
+.slide-tone-1 { background: var(--bg-base); }
+.slide-tone-2 { background: linear-gradient(180deg, var(--bg-base) 0%, var(--surface) 100%); }
+.slide-tone-3 { background: linear-gradient(160deg, var(--bg-base) 0%, rgba(139, 92, 246, 0.1) 100%); }
+.slide-tone-4 { background: var(--surface); }
+.slide-tone-5 { background: linear-gradient(200deg, var(--surface) 0%, rgba(139, 92, 246, 0.14) 100%); }
+
+/* Responsive */
+@media (max-width: 880px) {
+  .slide-inner { flex-direction: column; align-items: flex-start; gap: 18px; padding-left: 16px; padding-right: 16px; }
+  .slide-media  { flex-basis: 100%; max-width: 100%; }
+  .slide-content { width: 100%; max-width: 100%; }
+  .slide-text   { max-width: 100%; }
+  .slide-title  { font-size: clamp(1.4rem, 5vw, 2.2rem); }
+}
+
+@media (max-width: 520px) {
+  .slide-title { font-size: 1.2rem; }
+  .slide-text  { font-size: 0.95rem; }
+  .despite-back-btn { top: 12px; left: 12px; padding: 8px 14px; font-size: 0.9rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide, .slide-title, .slide-text, .slide-media img, .despite-indicator {
+    transition: none !important;
+    transform: none !important;
+  }
+}

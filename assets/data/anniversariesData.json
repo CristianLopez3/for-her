@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Nuestro aniversario",
+    "date": "2025-06-06",
+    "emoji": "💜",
+    "recurring": "yearly",
+    "description": "El día en que todo empezó"
+  },
+  {
+    "title": "Nuestra primera cita",
+    "date": "2025-06-06",
+    "emoji": "🌹",
+    "recurring": "yearly",
+    "description": "Edita esta fecha con la real"
+  },
+  {
+    "title": "Tu cumpleaños",
+    "date": "2000-08-10",
+    "emoji": "🎂",
+    "recurring": "yearly",
+    "description": "Feliz cumpleaños"
+  }
+]
