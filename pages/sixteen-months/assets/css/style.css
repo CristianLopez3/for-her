@@ -1,0 +1,305 @@
+/* ─── 16 Meses — page layout only (tokens live in assets/css/theme.css) ──── */
+
+body {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background-color: var(--bg-base);
+}
+
+/* ─── Stage: the whole screen is the tap target ────────────────────────── */
+.stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.stage.is-finished {
+  cursor: default;
+  user-select: text;
+}
+
+/* ─── Screens (welcome / slides / climax) ──────────────────────────────── */
+.screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+.screen.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ─── Welcome ──────────────────────────────────────────────────────────── */
+.welcome-hint {
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+}
+
+/* ─── Slides ───────────────────────────────────────────────────────────── */
+.slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 640px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.slide.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide.is-leaving {
+  opacity: 0;
+  transform: translateY(-24px);
+}
+
+/* Used while resetting the slide below the fold between numbers */
+.slide.no-transition {
+  transition: none;
+}
+
+.slide-number {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(5rem, 20vw, 16rem);
+  line-height: 1;
+  color: var(--accent-purple-light);
+  font-variant-numeric: tabular-nums;
+}
+
+.slide-phrase {
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  min-height: 1.5em;
+}
+
+/* Subtle progress line at the bottom */
+.progress-track {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 32px;
+  height: 2px;
+  background: var(--border-subtle);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-fill {
+  --progress: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--border-purple);
+  transform: scaleX(var(--progress));
+  transform-origin: left center;
+  transition: transform 0.4s ease;
+}
+
+/* ─── Climax ───────────────────────────────────────────────────────────── */
+.screen-climax {
+  justify-content: space-between;
+  gap: 16px;
+  padding: 48px 24px 32px;
+}
+
+.main-phrase {
+  font-family: "Tangerine", cursive;
+  font-weight: 700;
+  font-size: clamp(2.8rem, 11vw, 4.5rem);
+  line-height: 1.1;
+  color: var(--text-primary);
+  white-space: pre-line;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.main-phrase.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Alstroemeria vine — sized by height so it fits between phrase and back link */
+.flower {
+  height: min(50vh, 380px);
+  width: auto;
+  max-width: 80vw;
+  flex-shrink: 1;
+  min-height: 0;
+  overflow: visible;
+}
+
+.flower-stroke {
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+/* Green: stems, leaves, tendrils */
+.flower-stem,
+.flower-pedicel,
+.flower-tendril,
+.flower-leaf {
+  stroke: var(--accent-green);
+}
+
+.flower-stem-thin,
+.flower-tendril { stroke-width: 1.2; }
+
+.flower-vein {
+  stroke: var(--accent-green-light);
+  stroke-width: 0.9;
+}
+
+/* Purple: petals, ribs, stamens, anthers, speckles */
+.petal-outer { stroke: var(--accent-purple); }
+.petal-inner { stroke: var(--accent-purple-light); }
+
+.petal-rib,
+.stamen {
+  stroke: var(--accent-purple-light);
+  stroke-width: 0.9;
+}
+
+.flower-fill {
+  fill: var(--accent-purple-light);
+  opacity: 0;
+}
+
+/* Bloom order: bottom → middle → top */
+.bloom-c { --bloom-delay: 1.3s; }
+.bloom-b { --bloom-delay: 1.55s; }
+.bloom-a { --bloom-delay: 1.8s; }
+
+/* Sequence (~3.3s): stem → leaves/pedicels → petals → ribs/stamens → anthers/speckles */
+.flower.is-drawing .flower-stroke { animation: flowerDraw 1s ease-in-out forwards; }
+.flower.is-drawing .flower-stem    { animation-duration: 1.4s; }
+.flower.is-drawing .flower-leaf    { animation-delay: 0.6s; }
+.flower.is-drawing .flower-vein    { animation-duration: 0.7s; animation-delay: 1.1s; }
+.flower.is-drawing .flower-pedicel { animation-duration: 0.6s; animation-delay: 0.9s; }
+.flower.is-drawing .flower-tendril { animation-duration: 0.8s; animation-delay: 1.2s; }
+.flower.is-drawing .petal-outer,
+.flower.is-drawing .petal-inner    { animation-delay: var(--bloom-delay); }
+.flower.is-drawing .petal-rib,
+.flower.is-drawing .stamen         { animation-duration: 0.6s; animation-delay: calc(var(--bloom-delay) + 0.7s); }
+.flower.is-drawing .flower-fill    { animation: flowerFade 0.5s ease-out forwards; animation-delay: calc(var(--bloom-delay) + 1s); }
+
+@keyframes flowerDraw {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes flowerFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Subtle back link — reuses .dashboard-btn, toned down */
+.back-link {
+  background: transparent;
+  border-color: var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease, background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.back-link.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.back-link:hover,
+.back-link:focus-visible {
+  color: var(--text-primary);
+  border-color: var(--border-purple);
+}
+
+/* ─── Fireworks canvas (created by fireworks.js) ───────────────────────── */
+.fireworks-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5000;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+
+.fireworks-canvas.is-fading {
+  opacity: 0;
+}
+
+/* ─── Responsive ───────────────────────────────────────────────────────── */
+@media (min-width: 520px) {
+  .slide-phrase { font-size: 1.2rem; }
+  .welcome-hint { font-size: 1.2rem; }
+  .progress-track { left: 15%; right: 15%; }
+}
+
+@media (min-width: 768px) {
+  .slide-phrase { font-size: 1.35rem; }
+  .progress-track { left: 25%; right: 25%; bottom: 40px; }
+}
+
+@media (max-height: 560px) {
+  .screen-climax { padding-top: 24px; padding-bottom: 16px; }
+  .flower        { height: 44vh; }
+}
+
+/* ─── Reduced Motion ───────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .screen,
+  .slide,
+  .progress-fill,
+  .main-phrase,
+  .back-link,
+  .fireworks-canvas {
+    transition: none;
+  }
+
+  .slide,
+  .slide.is-leaving,
+  .main-phrase {
+    transform: none;
+  }
+
+  .flower-stroke,
+  .flower.is-drawing .flower-stroke {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  .flower-fill,
+  .flower.is-drawing .flower-fill {
+    animation: none;
+    opacity: 1;
+  }
+}

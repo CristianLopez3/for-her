@@ -14,6 +14,8 @@
   /* Accent */
   --accent-purple: #8b5cf6;
   --accent-purple-light: #a78bfa;
+  --accent-green: #1DB954;
+  --accent-green-light: #1ed760;
 
   /* Borders */
   --border-subtle: rgba(255, 255, 255, 0.1);

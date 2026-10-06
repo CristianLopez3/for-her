@@ -35,6 +35,17 @@
   transition: color 0.3s;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-btn,
+  .dashboard-btn i {
+    transition: none;
+  }
+
+  .dashboard-btn:hover {
+    transform: none;
+  }
+}
+
 /* Responsive auto-fit grid */
 .auto-grid {
   display: grid;

@@ -123,6 +123,64 @@ body {
   font-weight: 700;
 }
 
+/* ─── 16 Meses Card (between hero and nav grid) ────────────────────────── */
+.sixteen-months-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border-purple);
+  border-radius: var(--radius-lg);
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Stretch the inner link so the whole card is tappable */
+.sixteen-months-card .dashboard-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.sixteen-months-card:hover,
+.sixteen-months-card:focus-within {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-purple);
+}
+
+.sixteen-months-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.sixteen-months-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid var(--border-purple);
+  border-radius: var(--radius-full);
+  color: var(--accent-purple-light);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sixteen-months-card {
+    transition: none;
+  }
+
+  .sixteen-months-card:hover,
+  .sixteen-months-card:focus-within {
+    transform: none;
+  }
+}
+
 /* ─── Anniversaries Carousel ───────────────────────────────────────────── */
 .anniv-carousel {
   display: flex;
